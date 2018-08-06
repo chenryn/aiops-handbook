@@ -9,27 +9,28 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 #### 单指标
 
 * 清华裴丹团队举办的 KPI 异常检测比赛用数据(需注册登录) <http://iops.ai/competition_detail/?competition_id=5&flag=1>
-** 比赛前 5 名的分享：<http://workshop.aiops.org/>
-** 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
+    * 比赛前 5 名的分享：<http://workshop.aiops.org/>
+    * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
 * 阿里巴巴用 VAE 做 KPI 异常检测：<http://netman.ai/wp-content/uploads/2018/03/www2018.pdf>
+* 百度的 opprentice系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 * skyline
-** etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
-** etsy 未开源版的介绍(小波分解后分别过 KS 和广发 ESD 检验)：<https://vimeo.com/131581331>
-** lytics 公司用 golang 重写的：<https://github.com/lytics/anomalyzer>
-** 社区版(加入Ionosphere模块做反馈修正，使用了 tsfresh 库)：<https://github.com/earthgecko/skyline>
+    * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
+    * etsy 未开源版的介绍(小波分解后分别过 KS 和广发 ESD 检验)：<https://vimeo.com/131581331>
+    * lytics 公司用 golang 重写的：<https://github.com/lytics/anomalyzer>
+    * 社区版(加入 Ionosphere 模块做反馈修正，使用 tsfresh 库)：<https://github.com/earthgecko/skyline>
 * 开源的时序特征值提取库 tsfresh：<http://tsfresh.readthedocs.io/en/latest/>
 * netflix基于 PCA 算法的异常检测，跑在 Pig 上：<https://github.com/netflix/surus>
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
-** 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
+    * 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
-* 百度的 opprentice系统(14个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 
 #### 多指标
 
 * CMU 做多指标模式提取和异常检测的 SPIRIT 系统，论文：<https://bitquill.net/pdf/spirit_vldb05.pdf>
 
 ### 日志
+
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
 * NEC 美国实验室 LogMine 系统：<http://www.cs.unm.edu/~mueen/Papers/LogMine.pdf>
@@ -76,7 +77,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * etsy 开源版，基于 elasticsearch 实现的 fastDTW 时序相关性排序：<https://github.com/etsy/oculus>
 * linkedin 开源的基于 SAX 的异常检测和相关性计算库：<https://github.com/linkedin/luminol>
-** 此外，还有一个完整系统的介绍分享：<https://docs.google.com/presentation/d/1DWMNgoAtxuK8ZbFJOpq5vt3dEz5_4ptMuLtoTUjQ_ro/pub?start=false&loop=false&delayms=3000&slide=id.p>
+    * 此外，还有一个完整系统的介绍分享：<https://docs.google.com/presentation/d/1DWMNgoAtxuK8ZbFJOpq5vt3dEz5_4ptMuLtoTUjQ_ro/pub?start=false&loop=false&delayms=3000&slide=id.p>
 * netflix 公司的 Argos 系统，只有介绍文章：<https://eng.uber.com/argos/>
 
 ## 告警归并
