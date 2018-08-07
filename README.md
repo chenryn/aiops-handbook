@@ -2,6 +2,8 @@
 
 AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实施建议白皮书》](https://www.rizhiyi.com/assets/docs/AIOps.pdf)中的场景分类进行收集和展示。
 
+对于同一个场景，尽量提供比较新的链接。因为新论文里一般会引用和对比旧论文。
+
 ## 异常检测
 
 ### 指标
@@ -12,10 +14,10 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 比赛前 5 名的分享：<http://workshop.aiops.org/>
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
 * 阿里巴巴用 VAE 做 KPI 异常检测：<http://netman.ai/wp-content/uploads/2018/03/www2018.pdf>
-* 百度的 opprentice系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
+* 百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 * skyline
     * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
-    * etsy 未开源版的介绍(小波分解后分别过 KS 和广发 ESD 检验)：<https://vimeo.com/131581331>
+    * etsy 未开源版的介绍(小波分解后分别过 KS 和广义 ESD 检验)：<https://vimeo.com/131581331>
     * lytics 公司用 golang 重写的：<https://github.com/lytics/anomalyzer>
     * 社区版(加入 Ionosphere 模块做反馈修正，使用 tsfresh 库)：<https://github.com/earthgecko/skyline>
 * 开源的时序特征值提取库 tsfresh：<http://tsfresh.readthedocs.io/en/latest/>
