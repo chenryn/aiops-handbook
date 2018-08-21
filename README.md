@@ -13,7 +13,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队举办的 KPI 异常检测比赛用数据(需注册登录) <http://iops.ai/competition_detail/?competition_id=5&flag=1>
     * 比赛前 5 名的分享：<http://workshop.aiops.org/>
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
-* 阿里巴巴用 VAE 做 KPI 异常检测：<http://netman.ai/wp-content/uploads/2018/03/www2018.pdf>
+* 阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
 * 百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 * skyline
     * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
@@ -36,6 +36,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
 * NEC 美国实验室 LogMine 系统：<http://www.cs.unm.edu/~mueen/Papers/LogMine.pdf>
+* 其他商业公司：
+    * Loomsystems：<http://support.loomsystems.com/loom-guides>
 
 ### 磁盘
 
@@ -85,11 +87,18 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 ## 告警归并
 
 * anodot 公司论文，第三部分，利用 SAE 和 LDA 做 KPI 和告警的拓扑：<http://proceedings.mlr.press/v71/toledano18a/toledano18a.pdf>
+* 其他商业公司：
+    * moogsoft：<https://docs.moogsoft.com/>
 
 ## 图谱
 
 * 清华大学徐葳团队，状态图谱解决 OpenStack 问题：<http://iiis.tsinghua.edu.cn/~weixu/files/apsys-yong-slides.pdf>
 * 徐葳早年论文，用状态图来辅助开源项目更好的修改 logging 代码：<http://iiis.tsinghua.edu.cn/~weixu/files/slaml10-rabkin.pdf>
+
+## 行为异常
+
+* 其他商业公司：
+    * ExtraHop：<https://docs.extrahop.com/current/>
 
 ## 感谢
 
