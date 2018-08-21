@@ -88,7 +88,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * anodot 公司论文，第三部分，利用 SAE 和 LDA 做 KPI 和告警的拓扑：<http://proceedings.mlr.press/v71/toledano18a/toledano18a.pdf>
 * 其他商业公司：
-    * moogsoft：<https://docs.moogsoft.com/>
+    * [moogsoft](https://docs.moogsoft.com/) 公司(专门做告警处理的AIOps创业公司)有关技术实现的演讲：<https://docs.google.com/presentation/d/1F-8eop-9ffCpX4trOJS28FXATAFlQkgkfnDV_Zqnkuo/edit?pref=2&pli=1#slide=id.g990524d96_0_0>
 
 ## 图谱
 
@@ -102,4 +102,4 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ## 感谢
 
-* 感谢林锦进的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
+* 感谢 @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
