@@ -26,6 +26,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
     * 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
+    * 对应解释论文的中文翻译版：<http://www.infoq.com/cn/articles/automated-time-series-anomaly-detection>
 
 #### 多指标
 
@@ -94,6 +95,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 清华大学徐葳团队，状态图谱解决 OpenStack 问题：<http://iiis.tsinghua.edu.cn/~weixu/files/apsys-yong-slides.pdf>
 * 徐葳早年论文，用状态图来辅助开源项目更好的修改 logging 代码：<http://iiis.tsinghua.edu.cn/~weixu/files/slaml10-rabkin.pdf>
+* 宜信张真的演讲：[WOT2018 -张真-运维机器人之任务决策系统演讲](https://pan.baidu.com/s/1gSjJZIXswOPoeQzZ6cJT1g?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&traceid=)
 
 ## 行为异常
 
