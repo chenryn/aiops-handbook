@@ -15,6 +15,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
 * 阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
 * 百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
+* 腾讯开源的 metis 系统(参考了 opprentice 实现)：<https://github.com/tencent/metis>
 * skyline
     * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
     * etsy 未开源版的介绍(小波分解后分别过 KS 和广义 ESD 检验)：<https://vimeo.com/131581331>
