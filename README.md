@@ -100,6 +100,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ## 行为异常
 
+* Security Repo数据集，Mike Sconzo收集的各种和安全运维有关的数据：<https://www.secrepo.com/>
 * 其他商业公司：
     * ExtraHop：<https://docs.extrahop.com/current/>
 
