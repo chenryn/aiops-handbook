@@ -13,8 +13,9 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队举办的 KPI 异常检测比赛用数据(需注册登录) <http://iops.ai/competition_detail/?competition_id=5&flag=1>
     * 比赛前 5 名的分享：<http://workshop.aiops.org/>
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
-* 阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
-* 百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
+* 清华/阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
+* 清华/百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
+* 清华/南开/腾讯的 ADS 系统(ROCKA+opprentice+CPLE)，论文：<https://netman.aiops.org/wp-content/uploads/2018/12/bujiahao.pdf>
 * 腾讯开源的 metis 系统(参考了 opprentice 实现)：<https://github.com/tencent/metis>
 * skyline
     * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
@@ -32,6 +33,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 #### 多指标
 
 * CMU 做多指标模式提取和异常检测的 SPIRIT 系统，论文：<https://bitquill.net/pdf/spirit_vldb05.pdf>
+* 清华裴丹团队做的多指标聚类 ROCKA 系统，论文：<https://netman.aiops.org/~peidan/ANM2018/8.DependencyDiscovery/LectureCoverage/2018IWQOS_ROCKA.pdf>
 
 ### 日志
 
@@ -41,7 +43,12 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 其他商业公司：
     * Loomsystems：<http://support.loomsystems.com/loom-guides>
 
-### 磁盘
+## 标注
+
+### 指标异常标注
+
+* 百度开源的指标异常标注工具：<https://github.com/baidu/Curve>
+* 微软开源的指标异常工具：<https://github.com/Microsoft/TagAnomaly>
 
 ## 预测
 
