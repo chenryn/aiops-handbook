@@ -25,6 +25,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * etsy 未开源版的介绍(小波分解后分别过 KS 和广义 ESD 检验)：<https://vimeo.com/131581331>
     * lytics 公司用 golang 重写的：<https://github.com/lytics/anomalyzer>
     * 社区版(加入 Ionosphere 模块做反馈修正，使用 tsfresh 库)：<https://github.com/earthgecko/skyline>
+    * 360 公司开源的异常检测，和skyline一样简单投票，不过自己另写了几个EWMA、iForest、同环比等检测器：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/anomaly_detection>
 * 开源的时序特征值提取库 tsfresh：<http://tsfresh.readthedocs.io/en/latest/>
 * netflix基于 PCA 算法的异常检测，跑在 Pig 上：<https://github.com/netflix/surus>
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
@@ -62,6 +63,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 脸书开源，时序预测：<https://github.com/facebook/prophet>
 * 红帽开源，是 hawkular(已被 jaeger 取代)项目的一部分，在 ARIMA 基础上做了自动调参：<https://github.com/hawkular/hawkular-datamining>
+* 360 开源，封装了LR、ARIMA、LSTM等通用算法做预测：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/timeseries_predict>
 
 ### 容量规划
 
@@ -78,6 +80,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 ### 事件关联挖掘
 
 * 微软亚研的 Log3C，日志和 KPI 的关联挖掘：<https://github.com/logpai/Log3C>
+* 微软和吉林大学的论文：<http://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/SIGKDD-2014-Correlating-Events-with-Time-Series-for-Incident-Diagnosis.pdf>
+    * 360 公司按照该论文的开源实现：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/association_analysis>
 
 ## 根因分析
 
@@ -102,6 +106,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ## 告警归并
 
+* 360 开源，基于 Apriori 算法：<https://github.com/jixinpu/aiopstools/blob/master/examples/alarm_convergence.py>
 * anodot 公司论文，第三部分，利用 SAE 和 LDA 做 KPI 和告警的拓扑：<http://proceedings.mlr.press/v71/toledano18a/toledano18a.pdf>
 * 其他商业公司：
     * [moogsoft](https://docs.moogsoft.com/) 公司(专门做告警处理的AIOps创业公司)有关技术实现的演讲：<https://docs.google.com/presentation/d/1F-8eop-9ffCpX4trOJS28FXATAFlQkgkfnDV_Zqnkuo/edit?pref=2&pli=1#slide=id.g990524d96_0_0>
@@ -124,3 +129,4 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 感谢 @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
 * @zhuyiche 的 [awesome-anomaly-detection](https://github.com/zhuyiche/awesome-anomaly-detection) 库，专精在异常检测领域的论文收集。
+* @logpai 的 [awesome-log-analysis](https://github.com/logpai/awesome-log-analysis) 库，专精在日志智能分析领域的论文和研究者名录收集。
