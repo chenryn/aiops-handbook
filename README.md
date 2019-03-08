@@ -39,6 +39,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * CMU 做多指标模式提取和异常检测的 SPIRIT 系统，论文：<https://bitquill.net/pdf/spirit_vldb05.pdf>
 * 清华裴丹团队做的多指标聚类 ROCKA 系统，论文：<https://netman.aiops.org/~peidan/ANM2018/8.DependencyDiscovery/LectureCoverage/2018IWQOS_ROCKA.pdf>
+* 北卡顾晓晖团队做云主机异常检测和根因定位的 UBL 系统(基于 SOM 算法)，论文：<http://dance.csc.ncsu.edu/papers/UBL.pdf> 
 
 ### 日志
 
@@ -47,6 +48,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华/南开/腾讯的 FT-tree 系统，论文：<http://nkcs.iops.ai/wp-content/uploads/2018/06/paper-iwqos17-Syslog-Processing-for-Switch-Failure-Diagnosis-and-Prediction-in-Datacenter-Networks.pdf>
 * 清华/南开/百度的 LogClass 系统，论文：<http://nkcs.iops.ai/wp-content/uploads/2018/06/paper-IWQOS2018-Device_Agnostic_Log_Anomaly_Classification.pdf>
 * NEC 美国实验室 LogMine 系统：<http://www.cs.unm.edu/~mueen/Papers/LogMine.pdf>
+* 北卡顾晓晖团队做日志异常检测的 ELT 系统(拆分为粗粒度的 MAV 和细粒度的 MFG 两层)：<http://dance.csc.ncsu.edu/papers/srds11.pdf>
 * 其他商业公司：
     * Loomsystems：<http://support.loomsystems.com/loom-guides>
 
@@ -64,6 +66,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 脸书开源，时序预测：<https://github.com/facebook/prophet>
 * 红帽开源，是 hawkular(已被 jaeger 取代)项目的一部分，在 ARIMA 基础上做了自动调参：<https://github.com/hawkular/hawkular-datamining>
 * 360 开源，封装了LR、ARIMA、LSTM等通用算法做预测：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/timeseries_predict>
+* 北卡顾晓晖团队做监控系统数据传输压缩的论文(先聚类并下发预测模型，agent上预测无偏差就不上报了)：<http://dance.csc.ncsu.edu/papers/ICAC09.pdf>
 
 ### 容量规划
 
@@ -92,6 +95,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * zipkin
 * skywalking
 * pinpoint
+* 萨尔布吕肯大学Jonathan Mace，利用层次聚类尽量避免采样时丢失罕见个例：<https://people.mpi-sws.org/~jcmace/papers/lascasas2018weighted.pdf>
 
 ### 瓶颈分析
 
@@ -119,6 +123,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ## 行为异常
 
+* 北卡顾晓晖团队做程序行为异常分析的 PerfScope 系统(利用 LTTng 在线采集系统调用，配合 Apriori 算法)，论文：<http://dance.csc.ncsu.edu/papers/socc14.pdf>
 * ee-outliers 开源项目，利用 word2vec 做 osquery 输出的事件异常检测：<https://github.com/NVISO-BE/ee-outliers>
 * 阿里云天池算法大赛扫描爆破部分，第10名的开源介绍：<https://github.com/wufanyou/aliyun_safety>
 * Security Repo数据集，Mike Sconzo收集的各种和安全运维有关的数据：<https://www.secrepo.com/>
