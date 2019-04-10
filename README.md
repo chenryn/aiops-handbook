@@ -41,6 +41,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队做的多指标聚类 ROCKA 系统，论文：<https://netman.aiops.org/~peidan/ANM2018/8.DependencyDiscovery/LectureCoverage/2018IWQOS_ROCKA.pdf>
 * 微软亚研做的多指标聚类 YADING 系统，论文：<https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/p457-ding.pdf>
 * 北卡顾晓晖团队做云主机异常检测和根因定位的 UBL 系统(基于 SOM 算法)，论文：<http://dance.csc.ncsu.edu/papers/UBL.pdf> 
+* 新加坡国立大学做传感器多变量指标异常检测的开源项目(基于 GAN 算法)：<https://github.com/LiDan456/MAD-GANs>
 
 ### 日志
 
