@@ -34,6 +34,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
     * 对应解释论文的中文翻译版：<http://www.infoq.com/cn/articles/automated-time-series-anomaly-detection>
 * 亿客行Expedia开源的异常检测项目 adaptive-alerting：<https://github.com/ExpediaDotCom/adaptive-alerting>
+* RedHat公司CTO办公室开源的prometheus anomaly detector项目(基于傅里叶变换和Facebook的prophet预测算法)：<https://github.com/AICoE/prometheus-anomaly-detector>
 
 #### 多指标
 
@@ -45,6 +46,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ### 日志
 
+* RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
+* 腾讯开源的 metis 系统(参考了 opprentice 实现)：<https://github.com/tencent/metis>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
