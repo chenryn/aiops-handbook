@@ -16,6 +16,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 比赛前 5 名的分享：<http://workshop.aiops.org/>
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
 * 清华/阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
+    * 清华开源的 Bagel(Donut改进型，基于 CVAE 算法)：<https://github.com/lizeyan/Bagel>
 * 清华/百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 * 清华/南开/腾讯的 ADS 系统(ROCKA+opprentice+CPLE)，论文：<https://netman.aiops.org/wp-content/uploads/2018/12/bujiahao.pdf>
     * github上一个开源的CPLE实现：<https://github.com/tmadl/semisup-learn>
@@ -27,6 +28,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 社区版(加入 Ionosphere 模块做反馈修正，使用 tsfresh 库)：<https://github.com/earthgecko/skyline>
     * 360 公司开源的异常检测，和skyline一样简单投票，不过自己另写了几个EWMA、iForest、同环比等检测器：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/anomaly_detection>
 * 开源的时序特征值提取库 tsfresh：<http://tsfresh.readthedocs.io/en/latest/>
+* arundo 开源的 adtk 时序异常检测 python 库：<https://github.com/arundo/adtk>
 * netflix基于 PCA 算法的异常检测，跑在 Pig 上：<https://github.com/netflix/surus>
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
@@ -67,6 +69,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 百度开源的指标异常标注工具：<https://github.com/baidu/Curve>
 * 微软开源的指标异常工具：<https://github.com/Microsoft/TagAnomaly>
+* 清华/建行做的指标批量标注 Label-less 项目(基于 iForest 异常检测和 DTW 相似度学习)：<
+https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 ## 预测
 
