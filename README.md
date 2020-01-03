@@ -142,6 +142,7 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 * 北卡顾晓晖团队做程序行为异常分析的 PerfScope 系统(利用 LTTng 在线采集系统调用，配合 Apriori 算法)，论文：<http://dance.csc.ncsu.edu/papers/socc14.pdf>
 * ee-outliers 开源项目，利用 word2vec 做 osquery 输出的事件异常检测：<https://github.com/NVISO-BE/ee-outliers>
+* ubad 开源项目，利用 LSTM 和 OCSVM 做 osquery 输出的用户行为事件异常检测：<https://github.com/morrigan/user-behavior-anomaly-detector>
 * 阿里云天池算法大赛扫描爆破部分，第10名的开源介绍：<https://github.com/wufanyou/aliyun_safety>
 * Security Repo数据集，Mike Sconzo收集的各种和安全运维有关的数据：<https://www.secrepo.com/>
 * 其他商业公司：
