@@ -111,9 +111,10 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * pinpoint
 * 萨尔布吕肯大学Jonathan Mace，利用层次聚类尽量避免采样时丢失罕见个例：<https://people.mpi-sws.org/~jcmace/papers/lascasas2018weighted.pdf>
 
-### 瓶颈分析
+### 多维KPI分析
 
-* 多维属性的 KPI 瓶颈分析：<http://netman.ai/wp-content/uploads/2018/03/sunyq_IEEEAccess_HotSpot.pdf>
+* 清华/百度的HotSpot论文，有多维属性的 KPI 故障范围分析：<http://netman.ai/wp-content/uploads/2018/03/sunyq_IEEEAccess_HotSpot.pdf>
+* 清华/建行的FluxRank论文，在服务级故障时，快速定位到小范围的主机层问题并重启：<https://netman.aiops.org/wp-content/uploads/2019/08/liuping-camera-ready.pdf>
 
 ### 时序相关性分析
 
