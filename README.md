@@ -21,6 +21,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华/南开/腾讯的 ADS 系统(ROCKA+opprentice+CPLE)，论文：<https://netman.aiops.org/wp-content/uploads/2018/12/bujiahao.pdf>
     * github上一个开源的CPLE实现：<https://github.com/tmadl/semisup-learn>
 * 腾讯开源的 metis 系统(参考了 opprentice 实现)：<https://github.com/tencent/metis>
+* 阿里巴巴开源的Time2Graph(基于序列片段的图迁移路径做异常检测)：<https://github.com/petecheng/Time2Graph>
 * skyline
     * etsy 开源版(9 个检测器，简单投票)：<https://github.com/etsy/skyline>
     * etsy 未开源版的介绍(小波分解后分别过 KS 和广义 ESD 检验)：<https://vimeo.com/131581331>
