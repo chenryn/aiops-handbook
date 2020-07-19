@@ -99,7 +99,7 @@ Tracing is very useful for RCA, but donot need AI:
 * oculus(fastDTW+elasticsearch), opensourced by etsy: <https://github.com/etsy/oculus>
 * luminol(SAX-based, anomalydetection and correlation), opensourced by linkedin: <https://github.com/linkedin/luminol>
     * full system introduction: <https://docs.google.com/presentation/d/1DWMNgoAtxuK8ZbFJOpq5vt3dEz5_4ptMuLtoTUjQ_ro/pub?start=false&loop=false&delayms=3000&slide=id.p>
-* Argos, introduced by netflix: <https://eng.uber.com/argos/>
+* Argos, introduced by Uber: <https://eng.uber.com/argos/>
 
 ## Alert Grouping
 

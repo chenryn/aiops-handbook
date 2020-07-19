@@ -126,7 +126,7 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * etsy 开源版，基于 elasticsearch 实现的 fastDTW 时序相关性排序：<https://github.com/etsy/oculus>
 * linkedin 开源的基于 SAX 的异常检测和相关性计算库：<https://github.com/linkedin/luminol>
     * 此外，还有一个完整系统的介绍分享：<https://docs.google.com/presentation/d/1DWMNgoAtxuK8ZbFJOpq5vt3dEz5_4ptMuLtoTUjQ_ro/pub?start=false&loop=false&delayms=3000&slide=id.p>
-* netflix 公司的 Argos 系统，只有介绍文章：<https://eng.uber.com/argos/>
+* Uber 公司的 Argos 系统，只有介绍文章：<https://eng.uber.com/argos/>
 
 ### 解决方案相关性推荐
 
