@@ -64,7 +64,9 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * NEC 美国实验室 LogMine 系统：<http://www.cs.unm.edu/~mueen/Papers/LogMine.pdf>
 * NEC 美国实验室/蚂蚁金服做的 LogLens 系统(在 LogMine 基础上，和 ELK 的 Grok 设计结合；并加上了对 traceid 的判断处理，支持序列异常检测)，论文：<http://120.52.51.14/www.cs.ucsb.edu/~bzong/doc/icdcs-18.pdf>
 * 香港中文大学/华为的 POP 系统(和 LogMine 思路比较类似，在 Spark 上运行)：<http://www.cse.cuhk.edu.hk/lyu/_media/journal/pjhe_tdsc18.pdf>
-
+* 国防科大的日志领域研究综述(日志监测部分比我前面列的老，但还提了基于源码的静态分析和基于虚拟机增强的日志内容改进两个方向，基本都是袁丁教授团队做的)：<http://www.jos.org.cn/1000-9825/4936.htm>
+    * morningpaper 博客关于静态分析的 lprof 论文解析：<https://blog.acolyer.org/2015/10/08/lprof-a-non-intrusive-request-flow-profiler-for-distributed-systems/>
+    * morningpaper 博客关于日志增强的 log20 论文解析：<https://blog.acolyer.org/2017/11/03/log20-fully-automated-optimal-placement-of-log-printing-statements-under-specified-overhead-threshold/>
 * 其他商业公司：
     * Loomsystems(已被 serviceNow 收购，其对参数类型的 meter/gauge/timeless-gauge/histogram/invalid/root-cause 分类值得借鉴)：<https://www.loomsystems.com/hubfs/SophieTechnicalOverview.pdf>
     * coralogix(有基础的无关顺序的关联模式检测，对 XML/JSON 类型进行对象参数检测)：<https://coralogix.com/tutorials/what-is-coralogix-pattern-anomaly/>
