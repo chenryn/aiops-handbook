@@ -165,4 +165,4 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 * 感谢 @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
 * @zhuyiche 的 [awesome-anomaly-detection](https://github.com/zhuyiche/awesome-anomaly-detection) 库，专精在异常检测领域的论文收集。
-* @logpai 的 [awesome-log-analysis](https://github.com/logpai/awesome-log-analysis) 库，专精在日志智能分析领域的论文和研究者名录收集。
+* @logpai 的 [log-survey](https://github.com/logpai/log-survey) 库，专精在日志领域的论文和研究者收集，不光包括分析，还包括生成增强、压缩等。
