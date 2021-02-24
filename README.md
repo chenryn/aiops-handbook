@@ -54,6 +54,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
+* 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
+* 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
