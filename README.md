@@ -2,7 +2,7 @@
 
 英文版见 <README_en.md>。
 
-AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实施建议白皮书》](https://www.rizhiyi.com/assets/docs/AIOps.pdf)中的场景分类进行收集和展示。
+AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实施建议白皮书》](https://pic.huodongjia.com/ganhuodocs/2018-04-16/1523873064.74.pdf)中的场景分类进行收集和展示。
 
 对于同一个场景，尽量提供比较新的链接。因为新论文里一般会引用和对比旧论文。
 
