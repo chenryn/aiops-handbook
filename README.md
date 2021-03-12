@@ -53,6 +53,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
+    * NuLog基于上面对比更新的开源版本：<https://github.com/nulog/nulog>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
 * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
@@ -110,6 +111,8 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * 微软亚研的 Log3C，日志和 KPI 的关联挖掘：<https://github.com/logpai/Log3C>
 * 微软和吉林大学的论文：<http://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/SIGKDD-2014-Correlating-Events-with-Time-Series-for-Incident-Diagnosis.pdf>
     * 360 公司按照该论文的开源实现：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/association_analysis>
+* IBM研究院的论文，利用微服务错误指标和错误日志，采用因果推理算法和个性化 PageRank 算法，进行故障定位(文章主要目的是引入个性化 PR，因果推理这方面没区分 PC 和回归有什么差异)：<https://www.researchgate.net/publication/344435606_Localization_of_Operational_Faults_in_Cloud_Applications_by_Mining_Causal_Dependencies_in_Logs_using_Golden_Signals>
+
 
 ## 根因分析
 
@@ -121,6 +124,8 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * skywalking
 * pinpoint
 * opencensus
+* 谷歌开源的微服务测试床：<https://github.com/GoogleCloudPlatform/microservices-demo>
+* 复旦大学开源的大规模微服务测试床：<https://github.com/FudanSELab/train-ticket/>
 * 萨尔布吕肯大学Jonathan Mace，利用层次聚类尽量避免采样时丢失罕见个例：<https://people.mpi-sws.org/~jcmace/papers/lascasas2018weighted.pdf>
 * 清华裴丹团队举办的调用链根因定位比赛：<http://iops.ai/competition_detail/?competition_id=15&flag=1>
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
