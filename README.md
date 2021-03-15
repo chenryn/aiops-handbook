@@ -55,12 +55,12 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
-    * 他们也做了各种现有算法的开源实现和横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
-    * NuLog基于上面对比更新的开源版本：<https://github.com/nulog/nulog>
+    * 他们也做了各种现有算法的开源实现和自己的 Drain 算法进行横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
+    * 华为开源的 [NuLog](https://jorge-cardoso.github.io/publications/Papers/CP-2020-094-ICDM_Self_Attentive_Classification_Based_Anomaly_Detection.pdf) 项目(采用MLM掩码语言模型，并复现了上一篇论文一样的对比)：<https://github.com/nulog/nulog>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
-* 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
+    * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
@@ -162,6 +162,7 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 * 清华大学徐葳团队，状态图谱解决 OpenStack 问题：<http://iiis.tsinghua.edu.cn/~weixu/files/apsys-yong-slides.pdf>
 * 徐葳早年论文，用状态图来辅助开源项目更好的修改 logging 代码：<http://iiis.tsinghua.edu.cn/~weixu/files/slaml10-rabkin.pdf>
+* 华为开源的 [OpenStack 可观测性数据](https://jorge-cardoso.github.io/publications/Papers/CP-2020-093-Multi-source_Distributed_System_Data.pdf)样本集，trace 部分用的osprofiler 采集：<https://zenodo.org/record/3549604#.YE8Q-eHithE>
 * 宜信张真的演讲：[WOT2018 -张真-运维机器人之任务决策系统演讲](https://pan.baidu.com/s/1gSjJZIXswOPoeQzZ6cJT1g?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&traceid=)
 * CA/加泰罗尼亚理工大学，用日志和指标构建的基于图谱的微服务根因分析系统：<https://www.researchgate.net/publication/336585890_Graph-based_Root_Cause_Analysis_for_Service-Oriented_and_Microservice_Architectures>
 * 微众银行的智能运维系列分享第八篇(给了非常详细的节点属性和边属性设计，比 CA 的更细节)：[事件指纹库：构建异常案例的“博物馆”](https://mp.weixin.qq.com/s/M8tcS8q6sPPRRebAJkrb7Q)
@@ -180,6 +181,7 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 ## 扩展阅读
 
-* 感谢 @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
+* @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
 * @zhuyiche 的 [awesome-anomaly-detection](https://github.com/zhuyiche/awesome-anomaly-detection) 库，专精在异常检测领域的论文收集。
 * @logpai 的 [log-survey](https://github.com/logpai/log-survey) 库，专精在日志领域的论文和研究者收集，不光包括分析，还包括生成增强、压缩等。
+* @jorge-cardoso 对 AIOps 领域的系统映射研究：<https://jorge-cardoso.github.io/publications/Papers/WP-2020-079-AIOPS2020_A_Systematic_Mapping_Study_in_AIOps.pdf>
