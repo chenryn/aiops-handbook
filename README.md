@@ -34,6 +34,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
     * 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
+    * 华为都柏林研究院的 SLMAD 论文(Robust 四分位+矩阵画像 MP 算法)，用的 NAB 样本集：<https://www.researchgate.net/publication/344378625_SLMAD_Statistical_Learning-Based_Metric_Anomaly_Detection>
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
     * 对应解释论文的中文翻译版：<http://www.infoq.com/cn/articles/automated-time-series-anomaly-detection>
 * 亿客行Expedia开源的异常检测项目 adaptive-alerting：<https://github.com/ExpediaDotCom/adaptive-alerting>
@@ -55,11 +56,13 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 他们也做了各种现有算法的开源实现和横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
     * NuLog基于上面对比更新的开源版本：<https://github.com/nulog/nulog>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
+* IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
 * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
+
 * 清华/南开/腾讯的 FT-tree 开源实现：<https://github.com/WeibinMeng/ft-tree>
 * 清华/南开/百度的 LogClass 开源实现：<https://github.com/NetManAIOps/LogClass>
 * 北卡顾晓晖团队做日志异常检测的 ELT 系统(拆分为粗粒度的 MAV 和细粒度的 MFG 两层)：<http://dance.csc.ncsu.edu/papers/srds11.pdf>
@@ -161,6 +164,7 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * CA/加泰罗尼亚理工大学，用日志和指标构建的基于图谱的微服务根因分析系统：<https://www.researchgate.net/publication/336585890_Graph-based_Root_Cause_Analysis_for_Service-Oriented_and_Microservice_Architectures>
 * 微众银行的智能运维系列分享第八篇(给了非常详细的节点属性和边属性设计，比 CA 的更细节)：[事件指纹库：构建异常案例的“博物馆”](https://mp.weixin.qq.com/s/M8tcS8q6sPPRRebAJkrb7Q)
 * 中山大学融合了拓扑的指标异常检测系统 TopoMAD，开源的数据样本：<https://github.com/QAZASDEDC/TopoMAD>
+    * 网络另一篇针对 TopoMAD 论文的解析和评论文章，比较犀利：<https://dreamhomes.top/posts/202103111131.html>
 
 ## 行为异常
 
