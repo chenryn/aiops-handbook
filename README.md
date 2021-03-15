@@ -39,6 +39,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 对应解释论文的中文翻译版：<http://www.infoq.com/cn/articles/automated-time-series-anomaly-detection>
 * 亿客行Expedia开源的异常检测项目 adaptive-alerting：<https://github.com/ExpediaDotCom/adaptive-alerting>
 * RedHat公司CTO办公室开源的prometheus anomaly detector项目(基于傅里叶变换和Facebook的prophet预测算法)：<https://github.com/AICoE/prometheus-anomaly-detector>
+* AWS 开源的 gluon-ts 项目，基于 MXNet 进行时序指标的概率模型训练，以此做预测和异常检测：<https://github.com/awslabs/gluon-ts/>
+    * 以及 AWS 自己用 gluon-ts 实现云资源性能指标异常检测的论文：<http://export.arxiv.org/pdf/2007.15541>
 
 #### 多指标
 
@@ -62,7 +64,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
-
+* 中山大学的 SwissLog 论文，和 RobustLog 一样关注模型的鲁棒性问题：<https://www.researchgate.net/publication/346867203_SwissLog_Robust_and_Unified_Deep_Learning_Based_Log_Anomaly_Detection_for_Diverse_Faults>
 * 清华/南开/腾讯的 FT-tree 开源实现：<https://github.com/WeibinMeng/ft-tree>
 * 清华/南开/百度的 LogClass 开源实现：<https://github.com/NetManAIOps/LogClass>
 * 北卡顾晓晖团队做日志异常检测的 ELT 系统(拆分为粗粒度的 MAV 和细粒度的 MFG 两层)：<http://dance.csc.ncsu.edu/papers/srds11.pdf>
