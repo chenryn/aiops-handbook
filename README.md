@@ -41,6 +41,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * RedHat公司CTO办公室开源的prometheus anomaly detector项目(基于傅里叶变换和Facebook的prophet预测算法)：<https://github.com/AICoE/prometheus-anomaly-detector>
 * AWS 开源的 gluon-ts 项目，基于 MXNet 进行时序指标的概率模型训练，以此做预测和异常检测：<https://github.com/awslabs/gluon-ts/>
     * 以及 AWS 自己用 gluon-ts 实现云资源性能指标异常检测的论文：<http://export.arxiv.org/pdf/2007.15541>
+* 华为爱尔兰研究中心发的 SLMAD 论文(对周期性数据直接做 Robust BoxPlot，非周期性的做 Matrix Profile，但文中没说 MP 的 window size 如何定)：<https://www.researchgate.net/publication/344378625_SLMAD_Statistical_Learning-Based_Metric_Anomaly_Detection>
+    * Matrix Profile 本身也是一个比较新的时序分析算法，支持流式更新，国内介绍较少，对应的开源项目 STUMPY 官方文档见：<https://stumpy.readthedocs.io/en/latest/Tutorial_The_Matrix_Profile.html> 
 
 #### 多指标
 
