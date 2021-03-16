@@ -87,8 +87,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 百度开源的指标异常标注工具：<https://github.com/baidu/Curve>
 * 微软开源的指标异常工具：<https://github.com/Microsoft/TagAnomaly>
-* 清华/建行做的指标批量标注 Label-less 项目(基于 iForest 异常检测和 DTW 相似度学习)：<
-https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
+* 清华/建行做的指标批量标注 Label-less 项目(基于 iForest 异常检测和 DTW 相似度学习)：<https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 
 ## 预测
 
@@ -106,6 +105,9 @@ https://netman.aiops.org/wp-content/uploads/2019/10/Label-less-v2.pdf>
 * 阿里云某 1.3k 规模集群的云主机、容器和后台任务的时序数据：<https://github.com/alibaba/clusterdata>
    * 使用该数据集做的天池调度算法大赛第6名"地球漫步"的开源版本：<https://github.com/NeuronEmpire/aliyun_schedule_semi>
 * Trulia 开源，根据查询语句预测 Solr 集群的查询性能并调度：<https://github.com/trulia/thoth>
+* CMU 开源的关系型数据库自动调参工具 ottertune：<https://github.com/cmu-db/ottertune>
+   * PingCAP 仿作的 TiKV 自动调参工具：https://github.com/tikv/auto-tikv
+   * 中山大学发的 Elasticsearch 自动调参研究：<https://ieeexplore.ieee.org/ielx7/6287639/8948470/09079492.pdf>
 
 ### 网络
 
