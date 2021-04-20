@@ -56,6 +56,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 ### 日志
 
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
+* 香港中文大学的日志领域研究综述(比国防科大的新，加入了关于日志压缩、人机交互、语义等新方向)：<https://arxiv.org/pdf/2009.07237v1.pdf>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和自己的 Drain 算法进行横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
     * 华为开源的 [NuLog](https://jorge-cardoso.github.io/publications/Papers/CP-2020-094-ICDM_Self_Attentive_Classification_Based_Anomaly_Detection.pdf) 项目(采用MLM掩码语言模型，并复现了上一篇论文一样的对比)：<https://github.com/nulog/nulog>
