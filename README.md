@@ -55,6 +55,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ### 日志
 
+* 康考迪亚大学发表的 logram 论文(用 n-gram 来做日志解析)：<https://petertsehsun.github.io/papers/HetongTSE2020.pdf>
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
 * 香港中文大学的日志领域研究综述(比国防科大的新，加入了关于日志压缩、人机交互、语义等新方向)：<https://arxiv.org/pdf/2009.07237v1.pdf>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
@@ -109,8 +110,9 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
    * 使用该数据集做的天池调度算法大赛第6名"地球漫步"的开源版本：<https://github.com/NeuronEmpire/aliyun_schedule_semi>
 * Trulia 开源，根据查询语句预测 Solr 集群的查询性能并调度：<https://github.com/trulia/thoth>
 * CMU 开源的关系型数据库自动调参工具 ottertune：<https://github.com/cmu-db/ottertune>
-   * PingCAP 仿作的 TiKV 自动调参工具：https://github.com/tikv/auto-tikv
-   * 中山大学发的 Elasticsearch 自动调参研究：<https://ieeexplore.ieee.org/ielx7/6287639/8948470/09079492.pdf>
+* PingCAP 仿作的 TiKV 自动调参工具：https://github.com/tikv/auto-tikv
+* 中山大学发的 Elasticsearch 自动调参研究：<https://ieeexplore.ieee.org/ielx7/6287639/8948470/09079492.pdf>
+* 康考迪亚大学发的 Kafka 容量预测研究(前半段过程和自动调参类似，但是目的是得到模型后做参数变化下的预测，所以主要对比的是 XGBoost、LR、RF、MLP 的区别)：<https://github.com/SPEAR-SE/mlasp>
 
 ### 网络
 
