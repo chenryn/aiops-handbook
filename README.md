@@ -15,6 +15,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队举办的 KPI 异常检测比赛用数据(需注册登录) <http://iops.ai/competition_detail/?competition_id=5&flag=1>
     * 比赛前 5 名的分享：<http://workshop.aiops.org/>
     * 某博士生发的程序(未在参赛的 40 支队伍上看到名字哈)：<https://github.com/chengqianghuang/exp-anomaly-detector-AIOps>
+    * 北邮某硕士论文(KPI 部分考虑标记异常区间，并加异常过滤)：<https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD202101&filename=1021025248.nh&v=4bo62xCRybUZ6jmdkuL2wRQvfR0LRDN2TNkCZ1Og3VbUglRzjmact7Ot3k2Yf2vT>
 * 清华/阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
     * 清华开源的 Bagel(Donut改进型，基于 CVAE 算法)：<https://github.com/lizeyan/Bagel>
 * 清华/百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
@@ -35,6 +36,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
     * 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
     * 华为都柏林研究院的 SLMAD 论文(Robust 四分位+矩阵画像 MP 算法)，用的 NAB 样本集：<https://www.researchgate.net/publication/344378625_SLMAD_Statistical_Learning-Based_Metric_Anomaly_Detection>
+    * 南京大学一位硕士论文的 windowKDE 实现(文中还实现了另外两个叫 RDE 和 TEDA 的检测器)，代码很简陋：<https://github.com/lyzhang0614/windowKDEdetector>
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
     * 对应解释论文的中文翻译版：<http://www.infoq.com/cn/articles/automated-time-series-anomaly-detection>
 * 亿客行Expedia开源的异常检测项目 adaptive-alerting：<https://github.com/ExpediaDotCom/adaptive-alerting>
