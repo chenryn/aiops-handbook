@@ -59,7 +59,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 康考迪亚大学发表的 logram 论文(用 n-gram 来做日志解析)：<https://petertsehsun.github.io/papers/HetongTSE2020.pdf>
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
-* 香港中文大学的日志领域研究综述(比国防科大的新，加入了关于日志压缩、人机交互、语义等新方向)：<https://arxiv.org/pdf/2009.07237v1.pdf>
+* 香港中文大学的日志领域研究综述(比国防科大的新，加入了关于日志压缩、人机交互、语义等新方向)：<https://arxiv.org/pdf/2009.07237.pdf>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和自己的 Drain 算法进行横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
     * 华为开源的 [NuLog](https://jorge-cardoso.github.io/publications/Papers/CP-2020-094-ICDM_Self_Attentive_Classification_Based_Anomaly_Detection.pdf) 项目(采用MLM掩码语言模型，并复现了上一篇论文一样的对比)：<https://github.com/nulog/nulog>
@@ -132,17 +132,23 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ### 调用链
 
-这块没啥好说的，属于很有用，但比拼的不是 AI：
-
-* zipkin/brave
-* skywalking
-* pinpoint
-* opencensus
+* 开源 APM/tracing 实现：
+   * zipkin/brave：<https://github.com/openzipkin/brave>
+   * springcloud/sleuth：<https://github.com/spring-cloud/spring-cloud-sleuth>
+   * skywalking：<https://skywalking.apache.org/>
+   * jaeger：<https://github.com/jaegertracing/jaeger>
+   * pinpoint：<https://github.com/pinpoint-apm/pinpoint>
+   * elastic apm：<https://github.com/elastic/apm>
+   * datadog apm：<https://github.com/DataDog/dd-trace-java>
+   * opencensus/opentelemetry：<https://opentelemetry.io/>
+   * cilium/hubble：<https://github.com/cilium/hubble>
+   * pixie/stirling：<https://github.com/pixie-labs/pixie/tree/main/src/stirling>
+* 萨尔布吕肯大学Jonathan Mace，利用层次聚类尽量避免采样时丢失罕见个例：<https://people.mpi-sws.org/~jcmace/papers/lascasas2018weighted.pdf>
 * 谷歌开源的微服务测试床：<https://github.com/GoogleCloudPlatform/microservices-demo>
 * 复旦大学开源的大规模微服务测试床：<https://github.com/FudanSELab/train-ticket/>
-* 萨尔布吕肯大学Jonathan Mace，利用层次聚类尽量避免采样时丢失罕见个例：<https://people.mpi-sws.org/~jcmace/papers/lascasas2018weighted.pdf>
 * 清华裴丹团队举办的调用链根因定位比赛：<http://iops.ai/competition_detail/?competition_id=15&flag=1>
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
+* 意大利比萨大学关于微服务环境下异常检测和根因分析的综述论文：<https://arxiv.org/pdf/2105.12378.pdf>
 
 ### 多维KPI分析
 
