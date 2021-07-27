@@ -18,6 +18,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 北邮某硕士论文(KPI 部分考虑标记异常区间，并加异常过滤)：<https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&dbname=CMFD202101&filename=1021025248.nh&v=4bo62xCRybUZ6jmdkuL2wRQvfR0LRDN2TNkCZ1Og3VbUglRzjmact7Ot3k2Yf2vT>
 * 清华/阿里巴巴开源的 Donut(基于 VAE 算法)：<https://github.com/haowen-xu/donut>
     * 清华开源的 Bagel(Donut改进型，基于 CVAE 算法)：<https://github.com/lizeyan/Bagel>
+    * 基于 Donut 封装的开源项目 LoudML(支持从不同数据源自动获取数据做异常检测，RESTful 接口配置)：<https://github.com/regel/loudml>
 * 清华/百度的 opprentice 系统(14 个检测器，平均取参数值，随机森林)：<http://netman.cs.tsinghua.edu.cn/wp-content/uploads/2015/11/liu_imc15_Opprentice.pdf>
 * 清华/南开/腾讯的 ADS 系统(ROCKA+opprentice+CPLE)，论文：<https://netman.aiops.org/wp-content/uploads/2018/12/bujiahao.pdf>
     * github上一个开源的CPLE实现：<https://github.com/tmadl/semisup-learn>
