@@ -87,7 +87,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 其他商业公司：
     * Loomsystems(已被 serviceNow 收购，其对参数类型的 meter/gauge/timeless-gauge/histogram/invalid/root-cause 分类值得借鉴)：<https://www.loomsystems.com/hubfs/SophieTechnicalOverview.pdf>
     * coralogix(有基础的无关顺序的关联模式检测，对 XML/JSON 类型进行对象参数检测)：<https://coralogix.com/tutorials/what-is-coralogix-pattern-anomaly/>
-    * zebrium(存 newsql，参数名称的自动识别值得借鉴)：<https://www.zebrium.com/blog/using-ml-to-auto-learn-changing-log-structures>
+    * zebrium(存 newsql，参数名称的自动识别值得借鉴，最后用 GPT-3 生成告警描述也很有趣)：<https://www.zebrium.com/blog/using-ml-to-auto-learn-changing-log-structures>
 
 ## 标注
 
@@ -152,10 +152,11 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
 * 意大利比萨大学关于微服务环境下异常检测和根因分析的综述论文：<https://arxiv.org/pdf/2105.12378.pdf>
 
-### 多维KPI分析
+### 多维定位
 
 * 清华/百度的HotSpot论文，有多维属性的 KPI 故障范围分析：<http://netman.ai/wp-content/uploads/2018/03/sunyq_IEEEAccess_HotSpot.pdf>
 * 清华/建行的FluxRank论文，在服务级故障时，快速定位到小范围的主机层问题并重启：<https://netman.aiops.org/wp-content/uploads/2019/08/liuping-camera-ready.pdf>
+* 里昂国立应用科学学院的论文，采用子群发现算法，综合 SQL 解析、环境版本、告警、指标进行 SQL 慢查询定位：<https://www.researchgate.net/publication/353776691_What_makes_my_queries_slow_Subgroup_Discovery_for_SQL_Workload_Analysis>
 
 ### 时序相关性分析
 
@@ -171,6 +172,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 ## 告警归并
 
 * 360 开源，基于 Apriori 算法：<https://github.com/jixinpu/aiopstools/blob/master/examples/alarm_convergence.py>
+* 里昂国立应用科学学院的 SplitSD4X，采用子群发现算法，配合 NLP 解析事故报告文本，生成同类故障描述：<https://github.com/RemilYoucef/split-sd4x>
 * anodot 公司论文，第三部分，利用 SAE 和 LDA 做 KPI 和告警的拓扑：<http://proceedings.mlr.press/v71/toledano18a/toledano18a.pdf>
 * 其他商业公司：
     * [moogsoft](https://docs.moogsoft.com/) 公司(专门做告警处理的AIOps创业公司)有关技术实现的演讲：<https://docs.google.com/presentation/d/1F-8eop-9ffCpX4trOJS28FXATAFlQkgkfnDV_Zqnkuo/edit?pref=2&pli=1#slide=id.g990524d96_0_0>
