@@ -31,6 +31,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 社区版(加入 Ionosphere 模块做反馈修正，使用 tsfresh 库)：<https://github.com/earthgecko/skyline>
     * 360 公司开源的异常检测，和skyline一样简单投票，不过自己另写了几个EWMA、iForest、同环比等检测器：<https://github.com/jixinpu/aiopstools/tree/master/aiopstools/anomaly_detection>
 * 开源的时序特征值提取库 tsfresh：<http://tsfresh.readthedocs.io/en/latest/>
+* facebook 开源的时序数据处理库 kats，包括时序特征提取、模式检测、预测等功能：<https://github.com/facebookresearch/Kats>
 * arundo 开源的 adtk 时序异常检测 python 库：<https://github.com/arundo/adtk>
 * netflix基于 PCA 算法的异常检测，跑在 Pig 上：<https://github.com/netflix/surus>
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
