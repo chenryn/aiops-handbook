@@ -37,7 +37,6 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * twitter 的异常检测库，R 语言：<https://github.com/twitter/anomalydetection>
 * numenta 公司，HTM 算法：<https://github.com/numenta/nupic>
     * 顺带还做了一个项目专门用来比较效果(和裴丹比赛的评价标准不太一样，裴的标准是异常点往后 7 个都算；NAB 标准是异常区间内前一半算满分，后一半衰减)：<https://github.com/numenta/NAB>
-    * 华为都柏林研究院的 SLMAD 论文(Robust 四分位+矩阵画像 MP 算法)，用的 NAB 样本集：<https://www.researchgate.net/publication/344378625_SLMAD_Statistical_Learning-Based_Metric_Anomaly_Detection>
     * 南京大学一位硕士论文的 windowKDE 实现(文中还实现了另外两个叫 RDE 和 TEDA 的检测器)，代码很简陋：<https://github.com/lyzhang0614/windowKDEdetector>
 * 微软开源的 anomalydetector 项目(基于Spectral Residual算法，辅以 CNN，不过验证评估是对整个数据集所有指标训练一个大模型)：<https://github.com/microsoft/anomalydetector>
 * 雅虎开源的时序预测和异常检测项目 EGADS：<https://github.com/yahoo/egads>
