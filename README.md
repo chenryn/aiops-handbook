@@ -69,7 +69,10 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 他们也做了各种现有算法的开源实现和自己的 Drain 算法进行横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
     * 华为开源的 [NuLog](https://jorge-cardoso.github.io/publications/Papers/CP-2020-094-ICDM_Self_Attentive_Classification_Based_Anomaly_Detection.pdf) 项目(采用MLM掩码语言模型，并复现了上一篇论文一样的对比)：<https://github.com/nulog/nulog>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
+    * IBM 在 Drain3 基础上，通过公开文档爬虫获取事件 ID 的关键字描述，然后走语义分析相似度，来提取复杂变量类型(即除了常量、变量以外，新定义了sequential、optional 和 single-select 类型)：<https://arxiv.org/pdf/2202.07169.pdf>
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
+    * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
+* 斯里兰卡莫拉图瓦大学/WSO2 公司的 vue4logs-parser 开源实现，直接利用倒排索引搜索相关性来完成模式过滤：<https://github.com/IsuruBoyagane15/vue4logs-parser>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
@@ -87,6 +90,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * NEC 美国实验室/蚂蚁金服做的 LogLens 系统(在 LogMine 基础上，和 ELK 的 Grok 设计结合；并加上了对 traceid 的判断处理，支持序列异常检测)，论文：<http://120.52.51.14/www.cs.ucsb.edu/~bzong/doc/icdcs-18.pdf>
 * 香港中文大学/华为的 POP 系统(和 LogMine 思路比较类似，在 Spark 上运行)：<http://www.cse.cuhk.edu.hk/lyu/_media/journal/pjhe_tdsc18.pdf>
 * 康考迪亚大学发表的 logram 论文(用 n-gram 来做日志解析)：<https://petertsehsun.github.io/papers/HetongTSE2020.pdf>
+* 加拿大麦克马斯特大学的日志序列异常检测开源实现，加上序列每一步 duration 子序列做神经网络特征：<https://github.com/hfyxin/Ts-models-log-data-analysis>
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
 * 其他商业公司：
     * Loomsystems(已被 serviceNow 收购，其对参数类型的 meter/gauge/timeless-gauge/histogram/invalid/root-cause 分类值得借鉴)：<https://www.loomsystems.com/hubfs/SophieTechnicalOverview.pdf>
