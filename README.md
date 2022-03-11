@@ -90,6 +90,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * NEC 美国实验室/蚂蚁金服做的 LogLens 系统(在 LogMine 基础上，和 ELK 的 Grok 设计结合；并加上了对 traceid 的判断处理，支持序列异常检测)，论文：<http://120.52.51.14/www.cs.ucsb.edu/~bzong/doc/icdcs-18.pdf>
 * 香港中文大学/华为的 POP 系统(和 LogMine 思路比较类似，在 Spark 上运行)：<http://www.cse.cuhk.edu.hk/lyu/_media/journal/pjhe_tdsc18.pdf>
 * 康考迪亚大学发表的 logram 论文(用 n-gram 来做日志解析)：<https://petertsehsun.github.io/papers/HetongTSE2020.pdf>
+* 康考迪亚大学发表的 LogAssist 论文，用 n-gram 对已提取的日志模板序列做二次压缩，并用案例研究法对比效果：<https://petertsehsun.github.io/papers/TSE2021_LogAssist.pdf>
 * 加拿大麦克马斯特大学的日志序列异常检测开源实现，加上序列每一步 duration 子序列做神经网络特征：<https://github.com/hfyxin/Ts-models-log-data-analysis>
 * RedHat公司CTO办公室开源的Log Anomaly Detector项目(基于word2vec和SOM算法)：<https://github.com/AICoE/log-anomaly-detector>
 * 其他商业公司：
