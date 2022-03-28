@@ -76,6 +76,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
+    * 匈牙利罗兰大学的改进，主要在内存消耗上领先，论文：<https://www.mdpi.com/2076-3417/12/4/2044/pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
@@ -204,6 +205,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * ubad 开源项目，利用 LSTM 和 OCSVM 做 osquery 输出的用户行为事件异常检测：<https://github.com/morrigan/user-behavior-anomaly-detector>
 * 阿里云天池算法大赛扫描爆破部分，第10名的开源介绍：<https://github.com/wufanyou/aliyun_safety>
 * Security Repo数据集，Mike Sconzo收集的各种和安全运维有关的数据：<https://www.secrepo.com/>
+* 奥地利 AIT 的安全日志数据集：<https://zenodo.org/record/5789064#.YkFnZWJBxhE> 及其数据生成的测试床项目：<https://github.com/ait-aecid/kyoushi-environment>
 * 其他商业公司：
     * ExtraHop：<https://docs.extrahop.com/current/>
 
