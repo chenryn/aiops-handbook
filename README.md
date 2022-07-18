@@ -161,6 +161,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队举办的调用链根因定位比赛：<http://iops.ai/competition_detail/?competition_id=15&flag=1>
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
 * 意大利比萨大学关于微服务环境下异常检测和根因分析的综述论文：<https://arxiv.org/pdf/2105.12378.pdf>
+* Uber开源的调用链关键路径分析工具，还包括时钟偏移补偿和异常检测等：<https://github.com/uber-research/CRISP>
 
 ### 多维定位
 
