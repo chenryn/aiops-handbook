@@ -127,6 +127,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * PingCAP 仿作的 TiKV 自动调参工具：https://github.com/tikv/auto-tikv
 * 中山大学发的 Elasticsearch 自动调参研究：<https://ieeexplore.ieee.org/ielx7/6287639/8948470/09079492.pdf>
 * 康考迪亚大学发的 Kafka 容量预测研究(前半段过程和自动调参类似，但是目的是得到模型后做参数变化下的预测，所以主要对比的是 XGBoost、LR、RF、MLP 的区别)：<https://github.com/SPEAR-SE/mlasp>
+* 南加州大学开源的 unicorn 项目，采用因果推理算法发现最佳最重要的参数，最有趣的是还在 wiki 上贴了历次投稿驳回和修改意见：<https://github.com/softsys4ai/unicorn>
 
 ### 网络
 
