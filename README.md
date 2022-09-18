@@ -56,6 +56,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 微软亚研做的多指标聚类 YADING 系统，论文：<https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/p457-ding.pdf>
 * 北卡顾晓晖团队做云主机异常检测和根因定位的 UBL 系统(基于 SOM 算法)，论文：<http://dance.csc.ncsu.edu/papers/UBL.pdf> 
 * 新加坡国立大学做传感器多变量指标异常检测的开源项目(基于 GAN 算法)：<https://github.com/LiDan456/MAD-GANs>
+* 德国波斯坦大学做的多/单指标在71 种不同算法下的对比测试(RUC 最差情况几乎都不咋样)：<https://hpi-information-systems.github.io/timeeval-evaluation-paper/>
 
 ### 日志
 
