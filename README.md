@@ -73,7 +73,10 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
     * IBM 在 Drain3 基础上，通过公开文档爬虫获取事件 ID 的关键字描述，然后走语义分析相似度，来提取复杂变量类型(即除了常量、变量以外，新定义了sequential、optional 和 single-select 类型)：<https://arxiv.org/pdf/2202.07169.pdf>
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
-    * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
+* 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
+* 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
+* 华为德研的 ADLILog 开源实现，爬了 1000 个github 主要开源项目的源码中日志输出的静态单词作为训练库：<https://github.com/ADLILog/ADLILog>
+* elasticsearch 的 categorize_text aggregation 开源实现，利用开源词库 SCOWL 做词性分析，给动词加权：<https://github.com/elastic/elasticsearch/pull/80867>
 * 斯里兰卡莫拉图瓦大学/WSO2 公司的 vue4logs-parser 开源实现，直接利用倒排索引搜索相关性来完成模式过滤：<https://github.com/IsuruBoyagane15/vue4logs-parser>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 多伦多大学的 CLP 开源实现：<https://github.com/y-scope/clp>，uber 已经利用该技术处理其 spark 平台日志，官博文章见：<https://www.uber.com/en-US/blog/reducing-logging-cost-by-two-orders-of-magnitude-using-clp>
@@ -81,7 +84,6 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
     * 清华/阿里的 [LogGrep 开源实现](https://github.com/THUBear-wjy/LogGrep)，在上面 LogReducer 基础上，参考 CLP，重新设计了参数值的压缩方式，实现了不解压查询。总结来说还是牺牲一些写入 CPU，换磁盘空间和查询 CPU。论文：<https://web.cse.ohio-state.edu/~wang.7564/papers/eurosys23-final39.pdf>
     * 匈牙利罗兰大学的改进，主要在内存消耗上领先，论文：<https://www.mdpi.com/2076-3417/12/4/2044/pdf>
-* 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
