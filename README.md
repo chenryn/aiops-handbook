@@ -89,6 +89,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
 * 中山大学的 SwissLog 论文，和 RobustLog 一样关注模型的鲁棒性问题：<https://www.researchgate.net/publication/346867203_SwissLog_Robust_and_Unified_Deep_Learning_Based_Log_Anomaly_Detection_for_Diverse_Faults>
+* 中山大学/腾讯微信的 LogReducer 开源实现，通过离线分析低效日志，反馈给在线的eBPF过滤器：<https://github.com/IntelligentDDS/LogReducer>，其实论文中有关微信现状的分析解读更有趣。比如写错日志和忘删测试日志，占了无效日志的一半，一天几个PB。而且微信目前日志是promtail+loki+clickhouse。
 * 清华/南开/腾讯的 FT-tree 开源实现：<https://github.com/WeibinMeng/ft-tree>
 * 清华/南开/百度的 LogClass 开源实现：<https://github.com/NetManAIOps/LogClass>
 * 北卡顾晓晖团队做日志异常检测的 ELT 系统(拆分为粗粒度的 MAV 和细粒度的 MFG 两层)：<http://dance.csc.ncsu.edu/papers/srds11.pdf>
