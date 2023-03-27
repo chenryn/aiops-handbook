@@ -60,6 +60,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ### 日志
 
+#### 传统方法
+
 * 国防科大的日志领域研究综述(日志监测部分比我前面列的老，但还提了基于源码的静态分析和基于虚拟机增强的日志内容改进两个方向，基本都是袁丁教授团队做的)：<http://www.jos.org.cn/1000-9825/4936.htm>
     * morningpaper 博客关于静态分析的 lprof 论文解析：<https://blog.acolyer.org/2015/10/08/lprof-a-non-intrusive-request-flow-profiler-for-distributed-systems/>
     * morningpaper 博客关于日志增强的 log20 论文解析：<https://blog.acolyer.org/2017/11/03/log20-fully-automated-optimal-placement-of-log-printing-statements-under-specified-overhead-threshold/>
@@ -106,6 +108,11 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * Loomsystems(已被 serviceNow 收购，其对参数类型的 meter/gauge/timeless-gauge/histogram/invalid/root-cause 分类值得借鉴)：<https://www.loomsystems.com/hubfs/SophieTechnicalOverview.pdf>
     * coralogix(有基础的无关顺序的关联模式检测，对 XML/JSON 类型进行对象参数检测)：<https://coralogix.com/tutorials/what-is-coralogix-pattern-anomaly/>
     * zebrium(存 newsql，参数名称的自动识别值得借鉴，最后用 GPT-3 生成告警描述也很有趣)：<https://www.zebrium.com/blog/using-ml-to-auto-learn-changing-log-structures>
+
+#### 大语言模型方法
+
+* 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
+* 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
 
 ## 标注
 
