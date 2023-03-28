@@ -113,6 +113,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
+* 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
 
 ## 标注
 
