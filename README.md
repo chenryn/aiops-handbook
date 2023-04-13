@@ -230,6 +230,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 ## 扩展阅读
 
+* salesforce AI实验室的 AIOps 综述论文：<https://arxiv.org/pdf/2304.04661.pdf>，覆盖了指标、日志、调用链、根因分析、故障预测、自愈策略等各领域 237 篇论文。
 * @linjinjin123 的 [awesome-AIOps](https://github.com/linjinjin123/awesome-AIOps) 库，但我认为运维人员可能更需要的是一个从实用场景出发的归类。
 * @zhuyiche 的 [awesome-anomaly-detection](https://github.com/zhuyiche/awesome-anomaly-detection) 库，专精在异常检测领域的论文收集。
 * @logpai 的 [log-survey](https://github.com/logpai/log-survey) 库，专精在日志领域的论文和研究者收集，不光包括分析，还包括生成增强、压缩等。
