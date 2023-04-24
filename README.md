@@ -82,6 +82,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 斯里兰卡莫拉图瓦大学/WSO2 公司的 vue4logs-parser 开源实现，直接利用倒排索引搜索相关性来完成模式过滤：<https://github.com/IsuruBoyagane15/vue4logs-parser>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
 * 爱立信研究院做的 LoganMeta，采用 meta learning 算法，不过是监督式：<https://arxiv.org/pdf/2212.10992.pdf>
+* 中山大学/腾讯的 LogReducer 开源项目，基于eBPF技术，分析日志输出的热区，推动研发改进日志输出：<https://github.com/IntelligentDDS/LogReducer>
 * 多伦多大学的 CLP 开源实现：<https://github.com/y-scope/clp>，uber 已经利用该技术处理其 spark 平台日志，官博文章见：<https://www.uber.com/en-US/blog/reducing-logging-cost-by-two-orders-of-magnitude-using-clp>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
@@ -114,6 +115,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
 * 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
+* 微软发表的《Recommending Root-Cause and Mitigation Steps for Cloud Incidents using Large Language Models》论文，通过对微软内部4万个故障数据复盘，研究 GPT 模型对比 BERT 模型是否在故障诊断方面更有优势。大概的结论可以认为是：有优势，但依然没啥用。：<https://arxiv.org/pdf/2301.03797.pdf>
 
 ## 标注
 
