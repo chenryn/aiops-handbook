@@ -117,6 +117,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学发表的 LogDiv 论文，利用 GPT3 大模型，全面超过 LogPPT 的效果。并探讨了 ICL 方法用 5-shot 可能效果最佳：<https://arxiv.org/pdf/2307.09950.pdf>
 * IBM 开源的 BERTOps 项目，利用 BERT 大模型，和一部分人工标记数据，尝试了日志领域的三个分类任务，日志格式分类、黄金信号分类，故障分类(不过这个库就是纯展示，跑不起来，train.sh 里的 pretrain.txt不存在，只给了清洗前的 annotation Excel 文件)：<https://github.com/BertOps/bertops>
 * 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
+* 华为/中科大开源的 Biglog 大模型，基于 Bert 利用 16 个项目的4 亿 5 千万日志做无监督预训练：<https://github.com/BiglogOpenSource/PretrainedModel>。对应论文见：<https://ieeexplore.ieee.org/document/10188759/>
 * 微软发表的《Recommending Root-Cause and Mitigation Steps for Cloud Incidents using Large Language Models》论文，通过对微软内部4万个故障数据复盘，研究 GPT 模型对比 BERT 模型是否在故障诊断方面更有优势。大概的结论可以认为是：有优势，但依然没啥用。：<https://arxiv.org/pdf/2301.03797.pdf>
 
 ## 标注
