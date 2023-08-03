@@ -119,6 +119,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
 * 华为/中科大开源的 Biglog 大模型，基于 Bert 利用 16 个项目的4 亿 5 千万日志做无监督预训练：<https://github.com/BiglogOpenSource/PretrainedModel>。对应论文见：<https://ieeexplore.ieee.org/document/10188759/>
 * 微软发表的《Recommending Root-Cause and Mitigation Steps for Cloud Incidents using Large Language Models》论文，通过对微软内部4万个故障数据复盘，研究 GPT 模型对比 BERT 模型是否在故障诊断方面更有优势。大概的结论可以认为是：有优势，但依然没啥用。：<https://arxiv.org/pdf/2301.03797.pdf>
+* 微软亚研/南开发表的《Assess and Summarize: Improve Outage Understanding with Large Language Models》论文，对比 GPT2(本地单卡微调)，GPT3(6.7b)和 GPT3.5(175b) 的告警概要水平。3 到 2 确实差异非常明显，但 6.7b 到 175b 倒没有提升特别多：<https://arxiv.org/pdf/2305.18084.pdf>
 
 ## 标注
 
