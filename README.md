@@ -70,6 +70,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 加拿大滑铁卢大学的日志领域研究综述(2022 年，总结了各方向各算法的优劣)：<https://arxiv.org/pdf/2110.12489.pdf>
 * 香港中文大学团队收集的多篇日志异常检测相关论文和数据集(共87GB)：<https://github.com/logpai/loghub>
     * 他们也做了各种现有算法的开源实现和自己的 Drain 算法进行横向测试对比，报告见：<https://arxiv.org/pdf/1811.03509.pdf>
+    * 针对多行日志，尤其是一些应用中间件输出的表格式、KV 式的多行日志，升级了一版数据集和新算法，对应项目见：<https://github.com/logpai/hybridlog>
     * 华为开源的 [NuLog](https://jorge-cardoso.github.io/publications/Papers/CP-2020-094-ICDM_Self_Attentive_Classification_Based_Anomaly_Detection.pdf) 项目(采用MLM掩码语言模型，并复现了上一篇论文一样的对比)：<https://github.com/nulog/nulog>
     * 华为德研开源的 [ADLILog](https://arxiv.org/pdf/2207.03206.pdf)，爬了 github 上最活跃的1000 个开源项目，把其中输出日志的源码里的静态文本抽取出来做语料库辅助：<https://github.com/ADLILog/ADLILog>
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
