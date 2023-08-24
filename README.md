@@ -76,6 +76,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
     * IBM 在 Drain3 基础上，通过公开文档爬虫获取事件 ID 的关键字描述，然后走语义分析相似度，来提取复杂变量类型(即除了常量、变量以外，新定义了sequential、optional 和 single-select 类型)：<https://arxiv.org/pdf/2202.07169.pdf>
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
+* 香港中文大学团队更新版的日志异常检测数据集和相关实现评测：<https://github.com/logpai/LogPub>。和 loghub 不同的地方是：loghub 里每种日志只有 2k 条打了 label，而 logpub 这次全部人工打 label 了。此外，因为时隔多年，对比时也连带上 UniParser、LogPPT 这两个依赖 GPU 的方案。评测标准也考虑了模板和日志量的频次偏差、训练耗时等方面的问题。
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
 * 华为德研的 ADLILog 开源实现，爬了 1000 个github 主要开源项目的源码中日志输出的静态单词作为训练库：<https://github.com/ADLILog/ADLILog>
