@@ -224,6 +224,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 微众银行的智能运维系列分享第八篇(给了非常详细的节点属性和边属性设计，比 CA 的更细节)：[事件指纹库：构建异常案例的“博物馆”](https://mp.weixin.qq.com/s/M8tcS8q6sPPRRebAJkrb7Q)
 * 中山大学融合了拓扑的指标异常检测系统 TopoMAD，开源的数据样本：<https://github.com/QAZASDEDC/TopoMAD>
     * 网络另一篇针对 TopoMAD 论文的解析和评论文章，比较犀利：<https://dreamhomes.top/posts/202103111131.html>
+* 中山大学融合可观测性三大数据的根因定位系统“哪吒”，将指标、日志、调用链都转换成事件后，构建拓扑图，并根据业务告警触发异常拓扑和正常拓扑的对比，给出根因事件(调用变化或指标、日志异常等)。开源地址：<https://github.com/IntelligentDDS/Nezha>。文章在电商和火车票两个开源微服务 demo 上(比原始版本做了 otel 插码的升级改造，日志里也加 traceid 和 spanid 了)都验证了效果，同时分别验证了缺少某类数据的影响，发现两个 demo 上一个偏重指标一个偏重日志。不过评估上一堆 95+还是有点让人不敢相信。
 * 维也纳工业大学的[VloGraph](https://www.mdpi.com/2504-4990/4/2/16)项目，利用 NLP 和图谱分析技术，做安全场景的日志解析、存储和查询可视化框架：<https://github.com/sepses>
 
 ## 行为异常
