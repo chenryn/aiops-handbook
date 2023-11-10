@@ -127,6 +127,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 北航/云智慧开源的 Owl 运维大模型数据集，包括问答题和多选题两类：<https://github.com/HC-Guo/Owl>。对应论文中还评测了 MoA 微调、NBCE 长上下文支持、在 loghub 日志模式识别上的差异，不过优势都很微弱。
 * 清华/必示发表的 OpsEval 论文，场景和 Owl 类似，不过仅对比开源模型的表现，并区分中英文差异。实践发现中文问答质量差很多：<https://arxiv.org/pdf/2310.07637.pdf>。
 * 北大/蚂蚁金服开源的 CodeFuse-DevOpsEval 评测数据集，包括 DevOps 和 AIOps 两大块12类场景的选择器：<https://github.com/codefuse-ai/codefuse-devops-eval/blob/main/README_zh.md>，不过 AIOps 里根因分析场景 qwen 的分数异常的高，我个人怀疑是不是 qwen 预训练用到了阿里巴巴内部资料。
+* 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
+* 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
 
 ## 标注
 
