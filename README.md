@@ -79,7 +79,6 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学团队更新版的日志异常检测数据集和相关实现评测：<https://github.com/logpai/LogPub>。和 loghub 不同的地方是：loghub 里每种日志只有 2k 条打了 label，而 logpub 这次全部人工打 label 了。此外，因为时隔多年，对比时也连带上 UniParser、LogPPT 这两个依赖 GPU 的方案。评测标准也考虑了模板和日志量的频次偏差、训练耗时等方面的问题。
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
-* 华为德研的 ADLILog 开源实现，爬了 1000 个github 主要开源项目的源码中日志输出的静态单词作为训练库：<https://github.com/ADLILog/ADLILog>
 * elasticsearch 的 categorize_text aggregation 开源实现，利用开源词库 SCOWL 做词性分析，给动词加权：<https://github.com/elastic/elasticsearch/pull/80867>
 * 斯里兰卡莫拉图瓦大学/WSO2 公司的 vue4logs-parser 开源实现，直接利用倒排索引搜索相关性来完成模式过滤：<https://github.com/IsuruBoyagane15/vue4logs-parser>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
