@@ -128,6 +128,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 北大/蚂蚁金服开源的 CodeFuse-DevOpsEval 评测数据集，包括 DevOps 和 AIOps 两大块12类场景的选择器：<https://github.com/codefuse-ai/codefuse-devops-eval/blob/main/README_zh.md>，不过 AIOps 里根因分析场景 qwen 的分数异常的高，我个人怀疑是不是 qwen 预训练用到了阿里巴巴内部资料。
 * 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
 * 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
+* 微软发表的 Xpert 论文，从告警工单入口，依赖告警消息内容作为上下文，生成微软Azure自有的 Kusto Query Language：<https://arxiv.org/pdf/2312.11988.pdf>。论文提出了一个 Xcore 评价方法，从文本、符号、字段名匹配度多方面综合评估。不过文中举的错误示例，告警上线文和正确输出之间一个字都对不上，实在是不可能写对——本文给我的另一个提示：纯粹通过 Chat 形式让人提问生成查询语句，上下文信息太少，太难。当前阶段合适的策略还是找一些特定入口。
 
 ## 标注
 
