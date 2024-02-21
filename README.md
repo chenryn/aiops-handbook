@@ -58,6 +58,13 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 新加坡国立大学做传感器多变量指标异常检测的开源项目(基于 GAN 算法)：<https://github.com/LiDan456/MAD-GANs>
 * 德国波斯坦大学做的多/单指标在71 种不同算法下的对比测试(RUC 最差情况几乎都不咋样)：<https://hpi-information-systems.github.io/timeeval-evaluation-paper/>
 
+#### 大模型方法
+
+* 清华大学基于 GPT2 做的[GPT4TS大模型](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All)。本领域的开山之作，后续进展的基准。
+   * 浙江大学 anomalyLLM：<https://arxiv.org/html/2401.15123v1>，将 GPT4TS 大模型蒸馏成小模型。
+   * 港中文/同济 aLLM4TS：<https://arxiv.org/pdf/2402.04852.pdf>，在 GPT4TS 的结构上做修改。
+* 卡内基梅隆大小 MOMENT 模型和 Time-Series Pile 数据集：<https://arxiv.org/pdf/2402.03885.pdf>。对标大语言模型的 Pile 数据集，收集了目前最常用的 5 个指标数据集，同时覆盖了单维度和多维度指标的分类、长短期预测、异常检测等任务。然后类似 T5 的方式预训练了 moment-base、large、small 三个规格的指标大模型。论文主要对比的基线是 TimesNet 和 GPT4TS。
+
 ### 日志
 
 #### 传统方法
@@ -111,7 +118,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * coralogix(有基础的无关顺序的关联模式检测，对 XML/JSON 类型进行对象参数检测)：<https://coralogix.com/tutorials/what-is-coralogix-pattern-anomaly/>
     * zebrium(存 newsql，参数名称的自动识别值得借鉴，最后用 GPT-3 生成告警描述也很有趣)：<https://www.zebrium.com/blog/using-ml-to-auto-learn-changing-log-structures>
 
-#### 大语言模型方法
+#### 大模型方法
 
 * 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
@@ -129,6 +136,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
 * 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
 * 微软发表的 Xpert 论文，从告警工单入口，依赖告警消息内容作为上下文，生成微软Azure自有的 Kusto Query Language：<https://arxiv.org/pdf/2312.11988.pdf>。论文提出了一个 Xcore 评价方法，从文本、符号、字段名匹配度多方面综合评估。不过文中举的错误示例，告警上线文和正确输出之间一个字都对不上，实在是不可能写对——本文给我的另一个提示：纯粹通过 Chat 形式让人提问生成查询语句，上下文信息太少，太难。当前阶段合适的策略还是找一些特定入口。
+* 微软发表的 RCACopilot 论文：<https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf>。先对告警信息做摘要，然后用预训练的 fasttext 嵌入模型来做历史故障的向量搜索，在最终的 prompt 里同时提供摘要和历史故障的分类和描述，让 LLM 判断是不是老故障，是的话用 CoT 推理怎么处理。论文中提供了较多的评估数据，但本身对实验运用的团队和业务环境有强依赖，很难判断适用性。
 
 ## 标注
 
