@@ -137,6 +137,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
 * 微软发表的 Xpert 论文，从告警工单入口，依赖告警消息内容作为上下文，生成微软Azure自有的 Kusto Query Language：<https://arxiv.org/pdf/2312.11988.pdf>。论文提出了一个 Xcore 评价方法，从文本、符号、字段名匹配度多方面综合评估。不过文中举的错误示例，告警上线文和正确输出之间一个字都对不上，实在是不可能写对——本文给我的另一个提示：纯粹通过 Chat 形式让人提问生成查询语句，上下文信息太少，太难。当前阶段合适的策略还是找一些特定入口。
 * 微软发表的 RCACopilot 论文：<https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf>。先对告警信息做摘要，然后用预训练的 fasttext 嵌入模型来做历史故障的向量搜索，在最终的 prompt 里同时提供摘要和历史故障的分类和描述，让 LLM 判断是不是老故障，是的话用 CoT 推理怎么处理。论文中提供了较多的评估数据，但本身对实验运用的团队和业务环境有强依赖，很难判断适用性。
+* 微软发表的另一篇 ReAct 框架做 RCA 的技术报告：<https://arxiv.org/pdf/2403.04123.pdf>。大概结论是：不开发特定 Tool，靠通用的文档召回 tool，ReAct 效果还不如直接 RAG 或 CoT。即使开发特定 Tool，知识库里的分析计划写的如何，也才是影响最大的。一旦涉及多个知识库文档，ReAct 差不多到第二三轮就会一直失败下去了。
 
 ## 标注
 
