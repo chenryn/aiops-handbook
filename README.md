@@ -122,8 +122,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
-* 香港中文大学发表的 LogDiv 论文，利用 GPT3 大模型，全面超过 LogPPT 的效果。并探讨了 ICL 方法用 5-shot 可能效果最佳：<https://arxiv.org/pdf/2307.09950.pdf>
-   * 后续的 LLMParser 论文，通过设计的 sampling 方法和 cache，在日志模板推理速率上逼近 Drain 效果！此外，和 LogPPT/LogDiv 的对比中，也验证了基础模型从 110MB 的 RoBerta 到 13B 的 Curie 到 176B 的 ChatGPT，似乎提升不太高。在模板识别任务上，可能中型 LM 的语言理解力就不错了？<https://browse.arxiv.org/pdf/2310.01796.pdf>
+* 香港中文大学发表的 DivLog 论文，利用 GPT3 大模型，全面超过 LogPPT 的效果。并探讨了 ICL 方法用 5-shot 可能效果最佳：<https://arxiv.org/pdf/2307.09950v3.pdf>
+   * 后续的 LILAC 开源项目，通过设计的 sampling 方法和 cache，在日志模板推理速率上逼近 Drain 效果！此外，和 LogPPT/LogDiv 的对比中，也验证了基础模型从 110MB 的 RoBerta 到 13B 的 Curie 到 176B 的 ChatGPT，似乎提升不太高。在模板识别任务上，可能中型 LM 的语言理解力就不错了？<https://github.com/logpai/LILAC>
 * IBM 开源的 BERTOps 项目，利用 BERT 大模型，和一部分人工标记数据，尝试了日志领域的三个分类任务，日志格式分类、黄金信号分类，故障分类(不过这个库就是纯展示，跑不起来，train.sh 里的 pretrain.txt不存在，只给了清洗前的 annotation Excel 文件)：<https://github.com/BertOps/bertops>
 * 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
 * 华为/中科大开源的 Biglog 大模型，基于 Bert 利用 16 个项目的4 亿 5 千万日志做无监督预训练：<https://github.com/BiglogOpenSource/PretrainedModel>。对应论文见：<https://ieeexplore.ieee.org/document/10188759/>
