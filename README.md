@@ -138,6 +138,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 微软发表的 Xpert 论文，从告警工单入口，依赖告警消息内容作为上下文，生成微软Azure自有的 Kusto Query Language：<https://arxiv.org/pdf/2312.11988.pdf>。论文提出了一个 Xcore 评价方法，从文本、符号、字段名匹配度多方面综合评估。不过文中举的错误示例，告警上线文和正确输出之间一个字都对不上，实在是不可能写对——本文给我的另一个提示：纯粹通过 Chat 形式让人提问生成查询语句，上下文信息太少，太难。当前阶段合适的策略还是找一些特定入口。
 * 微软发表的 RCACopilot 论文：<https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf>。先对告警信息做摘要，然后用预训练的 fasttext 嵌入模型来做历史故障的向量搜索，在最终的 prompt 里同时提供摘要和历史故障的分类和描述，让 LLM 判断是不是老故障，是的话用 CoT 推理怎么处理。论文中提供了较多的评估数据，但本身对实验运用的团队和业务环境有强依赖，很难判断适用性。
 * 微软发表的另一篇 ReAct 框架做 RCA 的技术报告：<https://arxiv.org/pdf/2403.04123.pdf>。大概结论是：不开发特定 Tool，靠通用的文档召回 tool，ReAct 效果还不如直接 RAG 或 CoT。即使开发特定 Tool，知识库里的分析计划写的如何，也才是影响最大的。一旦涉及多个知识库文档，ReAct 差不多到第二三轮就会一直失败下去了。
+* Flip.AI 公司，自研的 DevOps 大模型，发表了技术报告。采用了 1 encoder -> N decoder 的 MoE 架构，在 80B token 上增量预训练；微调训练部分主要数据来源是基于 RAG 的 evol-instruct 仿真数据再辅以 18 个月的人工双盲过滤；强化学习阶段是 RLHAIF，构建一个故障注入环境，让模型生成 RCA 报告：<https://assets-global.website-files.com/65379657a6e8b5a6ad9463ed/65a6ec298f8b53c8ddb87408_System%20of%20Intelligent%20Actors_FlipAI.pdf>
 
 ## 标注
 
@@ -243,6 +244,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 网络另一篇针对 TopoMAD 论文的解析和评论文章，比较犀利：<https://dreamhomes.top/posts/202103111131.html>
 * 中山大学融合可观测性三大数据的根因定位系统“哪吒”，将指标、日志、调用链都转换成事件后，构建拓扑图，并根据业务告警触发异常拓扑和正常拓扑的对比，给出根因事件(调用变化或指标、日志异常等)。开源地址：<https://github.com/IntelligentDDS/Nezha>。文章在电商和火车票两个开源微服务 demo 上(比原始版本做了 otel 插码的升级改造，日志里也加 traceid 和 spanid 了)都验证了效果，同时分别验证了缺少某类数据的影响，发现两个 demo 上一个偏重指标一个偏重日志。不过评估上一堆 95+还是有点让人不敢相信。
 * 维也纳工业大学的[VloGraph](https://www.mdpi.com/2504-4990/4/2/16)项目，利用 NLP 和图谱分析技术，做安全场景的日志解析、存储和查询可视化框架：<https://github.com/sepses>
+* 清华大学/ebay的 AlertRCA，算是之前北大/ebay 的 [Groot](https://arxiv.org/pdf/2108.00344) 的加强版。利用 Bert 向量化告警、图注意力来学习因果，不用手动配置规则：<https://netman.aiops.org/wp-content/uploads/2024/03/AlertRCA_CCGRID2024_CameraReady.pdf>
 
 ## 行为异常
 
