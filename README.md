@@ -64,6 +64,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
    * 浙江大学 anomalyLLM：<https://arxiv.org/html/2401.15123v1>，将 GPT4TS 大模型蒸馏成小模型。
    * 港中文/同济 aLLM4TS：<https://arxiv.org/pdf/2402.04852.pdf>，在 GPT4TS 的结构上做修改。
 * 卡内基梅隆大小 MOMENT 模型和 Time-Series Pile 数据集：<https://arxiv.org/pdf/2402.03885.pdf>。对标大语言模型的 Pile 数据集，收集了目前最常用的 5 个指标数据集，同时覆盖了单维度和多维度指标的分类、长短期预测、异常检测等任务。然后类似 T5 的方式预训练了 moment-base、large、small 三个规格的指标大模型。论文主要对比的基线是 TimesNet 和 GPT4TS。
+* 谷歌开源的时序指标预测基础模型：<https://github.com/google-research/timesfm>
 
 ### 日志
 
