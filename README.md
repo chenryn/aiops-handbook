@@ -65,6 +65,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
    * 港中文/同济 aLLM4TS：<https://arxiv.org/pdf/2402.04852.pdf>，在 GPT4TS 的结构上做修改。
 * 卡内基梅隆大学 MOMENT 模型和 Time-Series Pile 数据集：<https://arxiv.org/pdf/2402.03885.pdf>。对标大语言模型的 Pile 数据集，收集了目前最常用的 5 个指标数据集，同时覆盖了单维度和多维度指标的分类、长短期预测、异常检测等任务。然后类似 T5 的方式预训练了 moment-base、large、small 三个规格的指标大模型。论文主要对比的基线是 TimesNet 和 GPT4TS。
 * 谷歌开源的时序指标预测基础模型：<https://github.com/google-research/timesfm>
+* 微软/清华发表的[MonitorAssistant](https://netman.aiops.org/wp-content/uploads/2024/05/MonitorAssistant_CameraReady-v1.4_submitted.pdf): 主要是在指标监控和标注的流程里，引入 LLM 助手。比如新指标上线时的配置参数推荐，和指标告警时的历史告警推荐，除了指标时序相似度加上指标描述的文本相似度；还有在工单对话中，通过文本问答来反馈哪些时段的异常类型是误报或不关心。
 
 ### 日志
 
@@ -93,6 +94,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 爱立信研究院做的 LoganMeta，采用 meta learning 算法，不过是监督式：<https://arxiv.org/pdf/2212.10992.pdf>
 * 中山大学/腾讯的 LogReducer 开源项目，基于eBPF技术，分析日志输出的热区，推动研发改进日志输出：<https://github.com/IntelligentDDS/LogReducer>
 * 多伦多大学的 CLP 开源实现：<https://github.com/y-scope/clp>，uber 已经利用该技术处理其 spark 平台日志，官博文章见：<https://www.uber.com/en-US/blog/reducing-logging-cost-by-two-orders-of-magnitude-using-clp>
+    * 同期也提供了一份测试数据集，包括 hadoop,hive 这种 text 类和 clickhouse,es 这种 JSON 类日志数据：<https://docs.yscope.com/clp/main/user-guide/resources-datasets.html>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
     * 清华/阿里的 [LogGrep 开源实现](https://github.com/THUBear-wjy/LogGrep)，在上面 LogReducer 基础上，参考 CLP，重新设计了参数值的压缩方式，实现了不解压查询。总结来说还是牺牲一些写入 CPU，换磁盘空间和查询 CPU。论文：<https://web.cse.ohio-state.edu/~wang.7564/papers/eurosys23-final39.pdf>
