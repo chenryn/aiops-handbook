@@ -134,6 +134,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 华为/中科大开源的 Biglog 大模型，基于 Bert 利用 16 个项目的4 亿 5 千万日志做无监督预训练：<https://github.com/BiglogOpenSource/PretrainedModel>。对应论文见：<https://ieeexplore.ieee.org/document/10188759/>
 * 华为/北邮发布的 LogPrompt 论文，利用 ChatGPT 和 Vicuna-13B 验证 zero-shot、CoT、ICL 几种不同 prompt 方案下的日志模板提取和异常检测效果：<https://arxiv.org/pdf/2308.07610.pdf>。对比基准就是上面的 LogPPT，结论是 ChatGPT 即使 zero-shot 也比 LogPPT 强一点。而开源的 Vicuna-13B 在 zero-shot 情况下差很多，但 ICL 方案下效果提升很大，接近可用水准。
 * 北航/云智慧开源的 Owl 运维大模型数据集，包括问答题和多选题两类：<https://github.com/HC-Guo/Owl>。对应论文中还评测了 MoA 微调、NBCE 长上下文支持、在 loghub 日志模式识别上的差异，不过优势都很微弱。
+* 北航/云智慧发表的 ECLIPSE 论文，重点解决实际日志模式过多问题（除了 logpub 以外还自己做了一个 ECLIPSE-Bench 数据集）：<https://arxiv.org/pdf/2405.13548>。大致思路是在日志模式提取后，再用 LLM 提取模板对应的核心单词和punct标点，然后构建`{关键词:标点模板}`词典存入 faiss 向量数据库。然后新日志先通过faiss 做 kNN 搜索，只在搜索结果内做 LCS 最长子串匹配逻辑来考虑是否合并更新模式。
 * 清华/必示发表的 OpsEval 论文，场景和 Owl 类似，不过仅对比开源模型的表现，并区分中英文差异。实践发现中文问答质量差很多：<https://arxiv.org/pdf/2310.07637.pdf>。
 * 北大/蚂蚁金服开源的 CodeFuse-DevOpsEval 评测数据集，包括 DevOps 和 AIOps 两大块12类场景的选择器：<https://github.com/codefuse-ai/codefuse-devops-eval/blob/main/README_zh.md>，不过 AIOps 里根因分析场景 qwen 的分数异常的高，我个人怀疑是不是 qwen 预训练用到了阿里巴巴内部资料。
 * 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
@@ -251,6 +252,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 中山大学融合了拓扑的指标异常检测系统 TopoMAD，开源的数据样本：<https://github.com/QAZASDEDC/TopoMAD>
     * 网络另一篇针对 TopoMAD 论文的解析和评论文章，比较犀利：<https://dreamhomes.top/posts/202103111131.html>
 * 中山大学融合可观测性三大数据的根因定位系统“哪吒”，将指标、日志、调用链都转换成事件后，构建拓扑图，并根据业务告警触发异常拓扑和正常拓扑的对比，给出根因事件(调用变化或指标、日志异常等)。开源地址：<https://github.com/IntelligentDDS/Nezha>。文章在电商和火车票两个开源微服务 demo 上(比原始版本做了 otel 插码的升级改造，日志里也加 traceid 和 spanid 了)都验证了效果，同时分别验证了缺少某类数据的影响，发现两个 demo 上一个偏重指标一个偏重日志。不过评估上一堆 95+还是有点让人不敢相信。
+    * NEC美国实验室发表的“木兰”，用指标和日志构建GraphSage图神经网络，在电商、火车票和产品打分三个应用上评测，并对比了“哪吒”：<https://dl.acm.org/doi/pdf/10.1145/3589334.3645442>。论文引入的 KPI 感知注意力机制能较好的避免指标数据质量问题。但是我不太理解为啥日志部分还要自己单独训练一个双向 transformer 语言模型来做日志向量化？
 * 维也纳工业大学的[VloGraph](https://www.mdpi.com/2504-4990/4/2/16)项目，利用 NLP 和图谱分析技术，做安全场景的日志解析、存储和查询可视化框架：<https://github.com/sepses>
 * 清华大学/ebay的 AlertRCA，算是之前北大/ebay 的 [Groot](https://arxiv.org/pdf/2108.00344) 的加强版。利用 Bert 向量化告警、图注意力来学习因果，不用手动配置规则：<https://netman.aiops.org/wp-content/uploads/2024/03/AlertRCA_CCGRID2024_CameraReady.pdf>
 
