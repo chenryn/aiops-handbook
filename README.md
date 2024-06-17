@@ -86,6 +86,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * IBM 在 Drain3 基础上，通过公开文档爬虫获取事件 ID 的关键字描述，然后走语义分析相似度，来提取复杂变量类型(即除了常量、变量以外，新定义了sequential、optional 和 single-select 类型)：<https://arxiv.org/pdf/2202.07169.pdf>
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
 * 香港中文大学团队更新版的日志异常检测数据集和相关实现评测：<https://github.com/logpai/LogPub>。和 loghub 不同的地方是：loghub 里每种日志只有 2k 条打了 label，而 logpub 这次全部人工打 label 了。此外，因为时隔多年，对比时也连带上 UniParser、LogPPT 这两个依赖 GPU 的方案。评测标准也考虑了模板和日志量的频次偏差、训练耗时等方面的问题。
+* 北大开源的 MultiLog 数据集:<https://github.com/AIOps-LogDB/MultiLog-Dataset>，在分布式数据库 Apache IoTDB 上进行了单节点单类型、单节点多类型、多节点单类型、多节点多类型等不同的故障注入方式。此外，也通过 drain+fasttext+autoencoder+lstm 方案实现了自己的异常检测：<https://arxiv.org/pdf/2406.07976>
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
 * elasticsearch 的 categorize_text aggregation 开源实现，利用开源词库 SCOWL 做词性分析，给动词加权：<https://github.com/elastic/elasticsearch/pull/80867>
@@ -212,6 +213,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华/百度的HotSpot论文，有多维属性的 KPI 故障范围分析：<http://netman.ai/wp-content/uploads/2018/03/sunyq_IEEEAccess_HotSpot.pdf>
 * 清华/建行的FluxRank论文，在服务级故障时，快速定位到小范围的主机层问题并重启：<https://netman.aiops.org/wp-content/uploads/2019/08/liuping-camera-ready.pdf>
 * 里昂国立应用科学学院的论文，采用子群发现算法，综合 SQL 解析、环境版本、告警、指标进行 SQL 慢查询定位：<https://www.researchgate.net/publication/353776691_What_makes_my_queries_slow_Subgroup_Discovery_for_SQL_Workload_Analysis>
+* NEC 实验室开源的 LEMMA-RCA 数据集：<https://lemma-rca.github.io/>，包括 product review 和内部一个 openshift 微服务上收集的日志和指标两类原始数据、以及对应的故障标注。并在这个数据集上，评估了包括 REASON、NEZHA 和 MULAN 在内的 sota 多模态根因定位方案的效果。
 
 ### 时序相关性分析
 
