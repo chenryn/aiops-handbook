@@ -66,6 +66,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 卡内基梅隆大学 MOMENT 模型和 Time-Series Pile 数据集：<https://arxiv.org/pdf/2402.03885.pdf>。对标大语言模型的 Pile 数据集，收集了目前最常用的 5 个指标数据集，同时覆盖了单维度和多维度指标的分类、长短期预测、异常检测等任务。然后类似 T5 的方式预训练了 moment-base、large、small 三个规格的指标大模型。论文主要对比的基线是 TimesNet 和 GPT4TS。
 * 谷歌开源的时序指标预测基础模型：<https://github.com/google-research/timesfm>
 * 微软/清华发表的[MonitorAssistant](https://netman.aiops.org/wp-content/uploads/2024/05/MonitorAssistant_CameraReady-v1.4_submitted.pdf): 主要是在指标监控和标注的流程里，引入 LLM 助手。比如新指标上线时的配置参数推荐，和指标告警时的历史告警推荐，除了指标时序相似度加上指标描述的文本相似度；还有在工单对话中，通过文本问答来反馈哪些时段的异常类型是误报或不关心。
+* datadog 的 Toto 指标大模型技术报告：<https://arxiv.org/pdf/2407.07874>，预训练数据包含一万亿个指标数据点，其中 75% 来自 datadog 云平台上的匿名数据。
 
 ### 日志
 
