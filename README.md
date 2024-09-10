@@ -47,6 +47,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 以及 AWS 自己用 gluon-ts 实现云资源性能指标异常检测的论文：<http://export.arxiv.org/pdf/2007.15541>
 * 华为爱尔兰研究中心发的 SLMAD 论文(对周期性数据直接做 Robust BoxPlot，非周期性的做 Matrix Profile，但文中没说 MP 的 window size 如何定)：<https://www.researchgate.net/publication/344378625_SLMAD_Statistical_Learning-Based_Metric_Anomaly_Detection>
     * Matrix Profile 本身也是一个比较新的时序分析算法，支持流式更新，国内介绍较少，对应的开源项目 STUMPY 官方文档见：<https://stumpy.readthedocs.io/en/latest/Tutorial_The_Matrix_Profile.html> 
+* 北航/快手的 CutAddPaste 论文，进行指标数据的数据增强：<https://dl.acm.org/doi/pdf/10.1145/3637528.3671739>。思路比较简单，从指标自己的历史数据里随机切片段下来，然后附加一些随机斜率啥的，再替换进另一个位置，就变成“含有指标自己知识的”异常样本了。
 
 #### 多指标
 
@@ -90,17 +91,19 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 北大开源的 MultiLog 数据集:<https://github.com/AIOps-LogDB/MultiLog-Dataset>，在分布式数据库 Apache IoTDB 上进行了单节点单类型、单节点多类型、多节点单类型、多节点多类型等不同的故障注入方式。此外，也通过 drain+fasttext+autoencoder+lstm 方案实现了自己的异常检测：<https://arxiv.org/pdf/2406.07976>
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
+* 南京大学的 PosParser 论文，尝试用词性标注生成 token 序列，然后生成日志模式：<https://www.computer.org/csdl/journal/bd/5555/01/10663950/1ZW74ddAxAQ>
 * elasticsearch 的 categorize_text aggregation 开源实现，利用开源词库 SCOWL 做词性分析，给动词加权：<https://github.com/elastic/elasticsearch/pull/80867>
 * 斯里兰卡莫拉图瓦大学/WSO2 公司的 vue4logs-parser 开源实现，直接利用倒排索引搜索相关性来完成模式过滤：<https://github.com/IsuruBoyagane15/vue4logs-parser>
 * IBM 研究院基于语言模型做的日志异常检测模型，对比了 fasttext 和 BERT 的效果：<https://www.researchgate.net/publication/344693315_Using_Language_Models_to_Pre-train_Features_for_Optimizing_Information_Technology_Operations_Management_Tasks>
+* IBM 发表的 LogMId 论文：<https://www.semanticscholar.org/paper/Decoding-Logs-for-Automatic-Metric-Identification-Gupta-Mohapatra/a7c70da522ec868df0e3bc30fb3f943ae1037fee>。提出一个新颖的改进想法：对日志模式和参数，都做一下分类，属于 golden signals 相关的，才需要关注，可以提升异常检测效果。
 * 爱立信研究院做的 LoganMeta，采用 meta learning 算法，不过是监督式：<https://arxiv.org/pdf/2212.10992.pdf>
-* 中山大学/腾讯的 LogReducer 开源项目，基于eBPF技术，分析日志输出的热区，推动研发改进日志输出：<https://github.com/IntelligentDDS/LogReducer>
 * 多伦多大学的 CLP 开源实现：<https://github.com/y-scope/clp>，uber 已经利用该技术处理其 spark 平台日志，官博文章见：<https://www.uber.com/en-US/blog/reducing-logging-cost-by-two-orders-of-magnitude-using-clp>
     * 同期也提供了一份测试数据集，包括 hadoop,hive 这种 text 类和 clickhouse,es 这种 JSON 类日志数据：<https://docs.yscope.com/clp/main/user-guide/resources-datasets.html>
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
     * 清华/阿里的 [LogGrep 开源实现](https://github.com/THUBear-wjy/LogGrep)，在上面 LogReducer 基础上，参考 CLP，重新设计了参数值的压缩方式，实现了不解压查询。总结来说还是牺牲一些写入 CPU，换磁盘空间和查询 CPU。论文：<https://web.cse.ohio-state.edu/~wang.7564/papers/eurosys23-final39.pdf>
     * 匈牙利罗兰大学的改进，主要在内存消耗上领先，论文：<https://www.mdpi.com/2076-3417/12/4/2044/pdf>
+    * 北大/港中深的 DeNum 项目：<https://github.com/gaiusyu/Denum>。抓住了一个很有趣的点“日志里数值占比很高，且不会太长”，并对数值设计了一套`(长度、首位)`编码标记，同一个标记的数值序列压缩率超高。剩余部分直接复用 logzip。
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
@@ -122,6 +125,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * Loomsystems(已被 serviceNow 收购，其对参数类型的 meter/gauge/timeless-gauge/histogram/invalid/root-cause 分类值得借鉴)：<https://www.loomsystems.com/hubfs/SophieTechnicalOverview.pdf>
     * coralogix(有基础的无关顺序的关联模式检测，对 XML/JSON 类型进行对象参数检测)：<https://coralogix.com/tutorials/what-is-coralogix-pattern-anomaly/>
     * zebrium(存 newsql，参数名称的自动识别值得借鉴，最后用 GPT-3 生成告警描述也很有趣)：<https://www.zebrium.com/blog/using-ml-to-auto-learn-changing-log-structures>
+    * ludexAI(用向量微调来做日志模式解析，附加向量相似度搜索做模式缓存，对比 LILAC 稍慢。但作为商业公司，宣称在自己生产环境上对 unseen log 更稳定，并给了生产环境上的 p90 延迟监控图)：<https://arxiv.org/pdf/2408.08300>
 
 #### 大模型方法
 
@@ -129,6 +133,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
 * 香港中文大学发表的 DivLog 论文，利用 GPT3 大模型，全面超过 LogPPT 的效果。并探讨了 ICL 方法用 5-shot 可能效果最佳：<https://arxiv.org/pdf/2307.09950v3.pdf>
    * 后续的 LILAC 开源项目，通过设计的 sampling 方法和 cache，在日志模板推理速率上逼近 Drain 效果！此外，和 LogPPT/LogDiv 的对比中，也验证了基础模型从 110MB 的 RoBerta 到 13B 的 Curie 到 176B 的 ChatGPT，似乎提升不太高。在模板识别任务上，可能中型 LM 的语言理解力就不错了？<https://github.com/logpai/LILAC>
+   * 后续的 ULog 论文：<https://arxiv.org/pdf/2406.07174>。最前面先加一个简单的日志长度分桶，让任务可以并行起来。单任务的速度其实比 LILAC 慢，并行以后就更快了。
 * IBM 开源的 BERTOps 项目，利用 BERT 大模型，和一部分人工标记数据，尝试了日志领域的三个分类任务，日志格式分类、黄金信号分类，故障分类(不过这个库就是纯展示，跑不起来，train.sh 里的 pretrain.txt不存在，只给了清洗前的 annotation Excel 文件)：<https://github.com/BertOps/bertops>
     * IBM 发表的 InstantOps 论文，利用 BERTOps 提取的日志特征，加上指标、k8s event、trace 等，进一步构建了图谱，做根因分析：<https://dl.acm.org/doi/pdf/10.1145/3629526.3645047>。在复旦开源的 [train-ticket](https://github.com/FudanSELab/train-ticket/)、[云智慧开源的 micross](https://github.com/CloudWise-OpenSource/GAIA-DataSet/tree/main/MicroSS) 和 [gitlab 开源的 quota-of-the-day](https://gitlab.com/quote-of-the-day/quote-of-the-day) 三个测试床上，准确度召回度都接近 1 了。
 * IBM 开源的 [KubePlaybook 数据集](https://github.com/K8sPlayBook/KubePlaybook/tree/main)，包括 130 份自然语言查询生成 ansible playbook 的语料，分为配置查询和故障分析操作等场景。该团队同时基于这个数据集验证了 few-shot learning 对生成 ansible playbook 的重要性（GPT4 和 llama2-70B 下测试，成功率从个位数提升到百分之七八十。另一个有趣的结论是温度设置最好为 0.6）：<https://dl.acm.org/doi/pdf/10.1145/3663529.3663855>
@@ -137,10 +142,15 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 华为/北邮发布的 LogPrompt 论文，利用 ChatGPT 和 Vicuna-13B 验证 zero-shot、CoT、ICL 几种不同 prompt 方案下的日志模板提取和异常检测效果：<https://arxiv.org/pdf/2308.07610.pdf>。对比基准就是上面的 LogPPT，结论是 ChatGPT 即使 zero-shot 也比 LogPPT 强一点。而开源的 Vicuna-13B 在 zero-shot 情况下差很多，但 ICL 方案下效果提升很大，接近可用水准。
 * 北航/云智慧开源的 Owl 运维大模型数据集，包括问答题和多选题两类：<https://github.com/HC-Guo/Owl>。对应论文中还评测了 MoA 微调、NBCE 长上下文支持、在 loghub 日志模式识别上的差异，不过优势都很微弱。
 * 北航/云智慧发表的 ECLIPSE 论文，重点解决实际日志模式过多问题（除了 logpub 以外还自己做了一个 ECLIPSE-Bench 数据集）：<https://arxiv.org/pdf/2405.13548>。大致思路是在日志模式提取后，再用 LLM 提取模板对应的核心单词和punct标点，然后构建`{关键词:标点模板}`词典存入 faiss 向量数据库。然后新日志先通过faiss 做 kNN 搜索，只在搜索结果内做 LCS 最长子串匹配逻辑来考虑是否合并更新模式。
+    * 北大/港中深的 AdaParser 论文：<https://arxiv.org/pdf/2406.03376>。类似思路上，加了一个 corrector 模块，包括对匹配失败的“错误”模式的更正、“正确”模式里一些不恰当变量(关键信息保留为常量)的更正。
+    * 重庆大学的 LogBatcher 项目：<https://anonymous.4open.science/r/LogBatcher/README.md>。类似思路，而且就用了基础的 TF-IDF 和 DBSCAN 来实现聚类，DPP 实现采样。一个额外改进就是模板缓存里会记录频率并重排序。最后评估结果里还对比了 tokens 消耗，比 LILAC 省钱～
+    * 阿里巴巴美国的 LogParser-LLM 论文：<https://dl.acm.org/doi/pdf/10.1145/3637528.3671810>。类似思路，额外改进时候区分了“松散匹配”，对松散匹配的模式可以让 LLM 更新。最后评估结果里还对比了 LLM 调用次数，但是如果换算成 tokens 消耗的话，应该不如 LogBatcher 省钱～
 * 清华/必示发表的 OpsEval 论文，场景和 Owl 类似，不过仅对比开源模型的表现，并区分中英文差异。实践发现中文问答质量差很多：<https://arxiv.org/pdf/2310.07637.pdf>。
+    * 后续还有 LogEval: <https://github.com/LinDuoming/LogEval>。总的来说不同任务，不同模型表现不一样，甚至 few-shot 都不一定领先 zero-shot。
 * 北大/蚂蚁金服开源的 CodeFuse-DevOpsEval 评测数据集，包括 DevOps 和 AIOps 两大块12类场景的选择器：<https://github.com/codefuse-ai/codefuse-devops-eval/blob/main/README_zh.md>，不过 AIOps 里根因分析场景 qwen 的分数异常的高，我个人怀疑是不是 qwen 预训练用到了阿里巴巴内部资料。
 * 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
 * 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
+    * 后续更新的 LUK 项目，改用 ChatGPT 来生成日志解读数据，用于 Bert 预训练：<https://github.com/LeaperOvO/LUK>
 
 ## 标注
 
@@ -208,6 +218,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
 * 意大利比萨大学关于微服务环境下异常检测和根因分析的综述论文：<https://arxiv.org/pdf/2105.12378.pdf>
 * Uber开源的调用链关键路径分析工具，还包括时钟偏移补偿和异常检测等：<https://github.com/uber-research/CRISP>
+* IBM 发表的 Astraea 论文，针对的是 trace 采样问题，思路比较另类，span 级采样，根据耗时分布，丢掉对排障没意义的 span。每种 span 的采样率就是在自身耗时拟合的 beta 分布下，蒙特卡洛方法筛选的 P90 概率：<https://arxiv.org/pdf/2405.15645>。论文背景里还提到，阿里曾经发过论文，说只有 10% 的 span 在 trace 排障中有用。
 
 ### 多维定位
 
@@ -236,6 +247,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 微软亚研/南开发表的《Assess and Summarize: Improve Outage Understanding with Large Language Models》论文，对比 GPT2(本地单卡微调)，GPT3(6.7b)和 GPT3.5(175b) 的告警概要水平。3 到 2 确实差异非常明显，但 6.7b 到 175b 倒没有提升特别多：<https://arxiv.org/pdf/2305.18084.pdf>
 * 微软发表的 RCACopilot 论文：<https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf>。先对告警信息做摘要，然后用预训练的 fasttext 嵌入模型来做历史故障的向量搜索，在最终的 prompt 里同时提供摘要和历史故障的分类和描述，让 LLM 判断是不是老故障，是的话用 CoT 推理怎么处理。论文中提供了较多的评估数据，但本身对实验运用的团队和业务环境有强依赖，很难判断适用性。
 * 微软发表的另一篇 ReAct 框架做 RCA 的技术报告：<https://arxiv.org/pdf/2403.04123.pdf>。大概结论是：不开发特定 Tool，靠通用的文档召回 tool，ReAct 效果还不如直接 RAG 或 CoT。即使开发特定 Tool，知识库里的分析计划写的如何，也才是影响最大的。一旦涉及多个知识库文档，ReAct 差不多到第二三轮就会一直失败下去了。
+* 阿里云 Flink 团队发表的 RCAgent 论文: <https://arxiv.org/pdf/2310.16340v1>。其中为了对 flink 错误日志做概要，设计了一大段巨复杂的流程（向量转换，滚动构建矩阵，Louvain贪婪去重聚类，RGA 生成解释和证据，计算证据和原始日志的LEVENSHTEIN距离做过滤，最后二次概要）。
 * Flip.AI 公司，自研的 DevOps 大模型，发表了技术报告。采用了 1 encoder -> N decoder 的 MoE 架构，在 80B token 上增量预训练；微调训练部分主要数据来源是基于 RAG 的 evol-instruct 仿真数据再辅以 18 个月的人工双盲过滤；强化学习阶段是 RLHAIF，构建一个故障注入环境，让模型生成 RCA 报告：<https://assets-global.website-files.com/65379657a6e8b5a6ad9463ed/65a6ec298f8b53c8ddb87408_System%20of%20Intelligent%20Actors_FlipAI.pdf>
 
 ## 告警归并
@@ -260,6 +272,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * NEC美国实验室发表的“木兰”，用指标和日志构建GraphSage图神经网络，在电商、火车票和产品打分三个应用上评测，并对比了“哪吒”：<https://dl.acm.org/doi/pdf/10.1145/3589334.3645442>。论文引入的 KPI 感知注意力机制能较好的避免指标数据质量问题。但是我不太理解为啥日志部分还要自己单独训练一个双向 transformer 语言模型来做日志向量化？
 * 维也纳工业大学的[VloGraph](https://www.mdpi.com/2504-4990/4/2/16)项目，利用 NLP 和图谱分析技术，做安全场景的日志解析、存储和查询可视化框架：<https://github.com/sepses>
 * 清华大学/ebay的 AlertRCA，算是之前北大/ebay 的 [Groot](https://arxiv.org/pdf/2108.00344) 的加强版。利用 Bert 向量化告警、图注意力来学习因果，不用手动配置规则：<https://netman.aiops.org/wp-content/uploads/2024/03/AlertRCA_CCGRID2024_CameraReady.pdf>
+* 清华大学/蚂蚁金服的 SparseRCA 论文：<https://netman.aiops.org/wp-content/uploads/2024/09/SparseRCA__Unsupervised_Root_Cause_Analysis_in_Sparse_Microservice_Testing_Traces__ISSRE24_Camera_Ready_.pdf>。论文通过案例研究提出一个观点：有一部分 span 的自身耗时，也跟 child 的数量有关，所以能用 EM 算法构建一个对未知 trace pattern 的耗时的拟合函数，用于 RCA 异常检测和排序。
 
 ## 行为异常
 
