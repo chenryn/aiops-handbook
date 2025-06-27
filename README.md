@@ -71,6 +71,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队开源的 ChatTS 指标问答大模型：<https://github.com/NetManAIOps/ChatTS>。基于 qwen2.5-14B 做的增量预训练和微调对齐。预训练数据的合成，参照 evol-instruct 设计了一套 TS-Evol 方案。指标数据入大模型之前，先有一个自训练的 5 层 MLP encoder。
     * MCQ2 reasoning 指标问答推理数据集：<https://aclanthology.org/2024.findings-emnlp.201.pdf>。数据集不限于运维场景，ChatTS 中只是抽取里这个数据集的一小部分。该数据集也是合成数据，不过是由 GPT4o 根据不同场景设定生成 python 代码再运行合成的。
     * 北邮/中国联通发表的 [ChatTime 论文](https://arxiv.org/pdf/2412.11376)：在 llama2-7B 基础上做的增量预训练和微调对齐。直接将指标数据做归一化再分桶，然后当 token 处理，扩展词表。和 ChatTS 都有指标分类场景的评估，按 GPT4 为共同基准的话，ChatTime 效果差一些。
+* 阿里/复旦发表的 [PromAssistant 论文](https://arxiv.org/pdf/2503.03114)：通过类 GraphRAG 方案实现针对 k8s 监控指标的 NL2PromQL。根据测试，直接调用 LLM 的语法准确率就有96%，因此主要解决的是怎么写对指标和标签名称的问题。
 
 ### 日志
 
@@ -90,6 +91,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * IBM云数据中心团队改进和开源的 Drain3 包，加强了持久化，自定义参数替换等：<https://github.com/IBM/Drain3>
     * IBM 在 Drain3 基础上，通过公开文档爬虫获取事件 ID 的关键字描述，然后走语义分析相似度，来提取复杂变量类型(即除了常量、变量以外，新定义了sequential、optional 和 single-select 类型)：<https://arxiv.org/pdf/2202.07169.pdf>
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
+    * concordia 大学发表[针对日志模式特征的研究](https://users.encs.concordia.ca/~abdelw/papers/ICPC2025_LECs.pdf)，提出了 30 种 LEC(log event characteristics)，其中 multi-level nested token 等变量类型，几乎所有算法提前效果都不好。
 * 香港中文大学团队更新版的日志异常检测数据集和相关实现评测：<https://github.com/logpai/LogPub>。和 loghub 不同的地方是：loghub 里每种日志只有 2k 条打了 label，而 logpub 这次全部人工打 label 了。此外，因为时隔多年，对比时也连带上 UniParser、LogPPT 这两个依赖 GPU 的方案。评测标准也考虑了模板和日志量的频次偏差、训练耗时等方面的问题。
 * 北大开源的 MultiLog 数据集:<https://github.com/AIOps-LogDB/MultiLog-Dataset>，在分布式数据库 Apache IoTDB 上进行了单节点单类型、单节点多类型、多节点单类型、多节点多类型等不同的故障注入方式。此外，也通过 drain+fasttext+autoencoder+lstm 方案实现了自己的异常检测：<https://arxiv.org/pdf/2406.07976>
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
@@ -253,6 +255,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华/微软开源的 AIOpsLab 项目：<https://microsoft.github.io/AIOpsLab/>。提供了一套 AIOps 从检测到定位到修复的评估框架。首批对比了直接使用 GPT 和 ReAct 方案、以及微软之前发表的[FLUSH智能体方案](https://www.microsoft.com/en-us/research/uploads/prod/2024/10/FLASH_Paper.pdf)的差异。结果分析里最有趣的是：成功 case 里其实调用 get_metric 和 get_trace tools 的比例很低！也就是说直接 kubectl 工具分析不出来的故障，就算再加指标和调用链，成功概率也不高了。
 * IBM 开源的 [KubePlaybook 数据集](https://github.com/K8sPlayBook/KubePlaybook/tree/main)，包括 130 份自然语言查询生成 ansible playbook 的语料，分为配置查询和故障分析操作等场景。该团队同时基于这个数据集验证了 few-shot learning 对生成 ansible playbook 的重要性（GPT4 和 llama2-70B 下测试，成功率从个位数提升到百分之七八十。另一个有趣的结论是温度设置最好为 0.6）：<https://dl.acm.org/doi/pdf/10.1145/3663529.3663855>
 * 阿里云 Flink 团队发表的 RCAgent 论文: <https://arxiv.org/pdf/2310.16340v1>。其中为了对 flink 错误日志做概要，设计了一大段巨复杂的流程（向量转换，滚动构建矩阵，Louvain贪婪去重聚类，RGA 生成解释和证据，计算证据和原始日志的LEVENSHTEIN距离做过滤，最后二次概要）。
+* 港中深开源的 [OpenRCA 数据集](https://github.com/microsoft/OpenRCA)：将之前三届 AIOps 挑战赛的数据集整理过滤，方便进行 RCA 智能体评测。论文自己也实现了一个简单的 Agent 但是效果很一般。注意数据集中有一些号称故障但其实对业务指标毫无影响的场景，我个人认为并无 RCA 必要。
 * Flip.AI 公司，自研的 DevOps 大模型，发表了技术报告。采用了 1 encoder -> N decoder 的 MoE 架构，在 80B token 上增量预训练；微调训练部分主要数据来源是基于 RAG 的 evol-instruct 仿真数据再辅以 18 个月的人工双盲过滤；强化学习阶段是 RLHAIF，构建一个故障注入环境，让模型生成 RCA 报告：<https://assets-global.website-files.com/65379657a6e8b5a6ad9463ed/65a6ec298f8b53c8ddb87408_System%20of%20Intelligent%20Actors_FlipAI.pdf>
 
 ## 告警归并
