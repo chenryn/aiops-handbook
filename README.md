@@ -55,7 +55,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华裴丹团队做的多指标聚类 ROCKA 系统，论文：<https://netman.aiops.org/~peidan/ANM2018/8.DependencyDiscovery/LectureCoverage/2018IWQOS_ROCKA.pdf>
 * 清华裴丹团队做的多指标异常检测 OmniAnomaly 开源实现，主要是对同一对象的多个指标，采用和单指标Donut类似的方法：<https://github.com/NetManAIOps/OmniAnomaly>
 * 微软亚研做的多指标聚类 YADING 系统，论文：<https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/p457-ding.pdf>
-* 北卡顾晓晖团队做云主机异常检测和根因定位的 UBL 系统(基于 SOM 算法)，论文：<http://dance.csc.ncsu.edu/papers/UBL.pdf> 
+* 北卡顾晓晖团队做云主机异常检测和根因定位的 UBL 系统(基于 SOM 算法)，论文：<http://dance.csc.ncsu.edu/papers/UBL.pdf>
+* 沙特阿卜杜拉国王科技大学开源的 [uView](https://github.com/sands-lab/uview) 项目，在大规模云环境上，通过智能网卡 IPU 来运行秒级监控，并通过 FD-Sketch 异常检测算法（同一个 service 的多指标做为矩阵和 SVD 降维，得到性能基线）来缩减向中心汇报的指标数据。
 * 新加坡国立大学做传感器多变量指标异常检测的开源项目(基于 GAN 算法)：<https://github.com/LiDan456/MAD-GANs>
 * 德国波斯坦大学做的多/单指标在71 种不同算法下的对比测试(RUC 最差情况几乎都不咋样)：<https://hpi-information-systems.github.io/timeeval-evaluation-paper/>
 
@@ -93,6 +94,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 上海交通大学采用日志中的 punct 部分作为日志模式学习的来源，实现了一个 logpunk 系统，在 loghub 下对比，效果居然也好过其他算法：<https://www.mdpi.com/2076-3417/11/24/11974/pdf>
     * concordia 大学发表[针对日志模式特征的研究](https://users.encs.concordia.ca/~abdelw/papers/ICPC2025_LECs.pdf)，提出了 30 种 LEC(log event characteristics)，其中 multi-level nested token 等变量类型，几乎所有算法提前效果都不好。
 * 香港中文大学团队更新版的日志异常检测数据集和相关实现评测：<https://github.com/logpai/LogPub>。和 loghub 不同的地方是：loghub 里每种日志只有 2k 条打了 label，而 logpub 这次全部人工打 label 了。此外，因为时隔多年，对比时也连带上 UniParser、LogPPT 这两个依赖 GPU 的方案。评测标准也考虑了模板和日志量的频次偏差、训练耗时等方面的问题。
+* 复旦/阿里开源的 LogBase 数据集：<https://dl.acm.org/doi/pdf/10.1145/3728969>，构建方法是从 github 上爬了130 个主要的 java 开源项目的 logger 代码，根据 logger 所在 method 的 parameters 命名模板变量，然后用大模型 CoT 方法生成对应这 84300 个模式的样例日志。论文中还对比了和 Loghub 相比，目前主流算法的情况，LILAC 在 LogBase 上准确率又跌回 0.5 左右了。
 * 北大开源的 MultiLog 数据集:<https://github.com/AIOps-LogDB/MultiLog-Dataset>，在分布式数据库 Apache IoTDB 上进行了单节点单类型、单节点多类型、多节点单类型、多节点多类型等不同的故障注入方式。此外，也通过 drain+fasttext+autoencoder+lstm 方案实现了自己的异常检测：<https://arxiv.org/pdf/2406.07976>
 * 微软的 UniParser 论文，通过语义分析，识别训练集中某些常量为变量：<https://arxiv.org/pdf/2202.06569.pdf>
 * 香港中文大学的 SemParser 论文，尝试用语义分析来命名模式中的参数位：<https://arxiv.org/pdf/2112.12636.pdf>
@@ -107,8 +109,12 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 香港中文大学的 LogZip 开源实现：<https://github.com/logpai/logzip>
     * 清华/阿里的 LogReducer 系统(用 C/C++ 重写了 logzip，并加上对特定数值型参数值的差分、关联和变长压缩优化)，论文：<https://www.usenix.org/system/files/fast21-wei.pdf>
     * 清华/阿里的 [LogGrep 开源实现](https://github.com/THUBear-wjy/LogGrep)，在上面 LogReducer 基础上，参考 CLP，重新设计了参数值的压缩方式，实现了不解压查询。总结来说还是牺牲一些写入 CPU，换磁盘空间和查询 CPU。论文：<https://web.cse.ohio-state.edu/~wang.7564/papers/eurosys23-final39.pdf>
+        * loggrep 的后续迭代：[LogCrisp](https://github.com/marsupialtail/logcrisp-vendored-code)。在参数处理上，综合了 CLP 的全局编号和 loggrep 的局部编号。并针对性做了数值通配符查询转范围查询的优化。在 TB 级数据上，入库接近 CLP、压缩率接近 loggrep，查询比 loggrep 快一倍。
+        * 同一个作者和字节跳动合作的 [LogCloud](https://github.com/marsupialtail/logcloud) 项目。针对的是云日志通配符查询场景，日志原文存在 S3 上。本文主要解决如何构建二级索引，加速从 S3 下载文件的过程。
     * 匈牙利罗兰大学的改进，主要在内存消耗上领先，论文：<https://www.mdpi.com/2076-3417/12/4/2044/pdf>
     * 北大/港中深的 DeNum 项目：<https://github.com/gaiusyu/Denum>。抓住了一个很有趣的点“日志里数值占比很高，且不会太长”，并对数值设计了一套`(长度、首位)`编码标记，同一个标记的数值序列压缩率超高。剩余部分直接复用 logzip。
+    * 广州大学/蚂蚁金服内存数据库团队的 LogLite 项目：<https://github.com/benzhaotang/LogLite>。研发发现他们产品日志长度变化极小，且相同长度的相似度更高。所以直接对相同长度的日志做逆序做 XOR 逻辑异或，和 RLE 游程编码，实现压缩。
+    * 威斯康星麦迪逊大学的开源项目 [REI](https://github.com/mush-zhang/REI-Regular-Expression-Indexing)。认为日志查询一般都会有固定关键词，所以只需要针对查询热点词（论文认为 64 个就行）做 n-gram 索引就足够用。
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
     * 开源实现：<https://github.com/wuyifan18/DeepLog>
     * 另一个开源实现，还实现了另外两种算法[LogAnomaly](https://www.ijcai.org/Proceedings/2019/658)和[RobustLog](https://dl.acm.org/doi/10.1145/3338906.3338931)，可切换：<https://github.com/donglee-afar/logdeep>
@@ -136,6 +142,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 
 * 北航发表的 LogQA 论文，利用 [T5 大模型](https://huggingface.co/iarfmoose/t5-base-question-generator)，和手工标记生成的[训练数据](https://github.com/LogQA-dataset/LogQA/tree/main/data)，实现了对日志的自然语言问答：<https://arxiv.org/pdf/2303.11715.pdf>
 * 澳大利亚纽卡斯尔大学开源的 LogPPT 项目，利用 RoBERTa 大模型和 loghub 数据集。最有趣的点是 loghub 数据集中虽然 80G 日志但每类只有 2k 条有标签的。本论文思路正好就反向用 2k 有标签的做 prompt：<https://github.com/LogIntelligence/LogPPT>
+   * 更新版叫 Unleash <https://github.com/LogIntelligence/UNLEASH>，主要是加了熵采样和对比学习。
 * 香港中文大学发表的 DivLog 论文，利用 GPT3 大模型，全面超过 LogPPT 的效果。并探讨了 ICL 方法用 5-shot 可能效果最佳：<https://arxiv.org/pdf/2307.09950v3.pdf>
    * 后续的 LILAC 开源项目，通过设计的 sampling 方法和 cache，在日志模板推理速率上逼近 Drain 效果！此外，和 LogPPT/LogDiv 的对比中，也验证了基础模型从 110MB 的 RoBerta 到 13B 的 Curie 到 176B 的 ChatGPT，似乎提升不太高。在模板识别任务上，可能中型 LM 的语言理解力就不错了？<https://github.com/logpai/LILAC>
    * 后续的 ULog 论文：<https://arxiv.org/pdf/2406.07174>。最前面先加一个简单的日志长度分桶，让任务可以并行起来。单任务的速度其实比 LILAC 慢，并行以后就更快了。
@@ -143,19 +150,24 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * IBM 发表的 InstantOps 论文，利用 BERTOps 提取的日志特征，加上指标、k8s event、trace 等，进一步构建了图谱，做根因分析：<https://dl.acm.org/doi/pdf/10.1145/3629526.3645047>。在复旦开源的 [train-ticket](https://github.com/FudanSELab/train-ticket/)、[云智慧开源的 micross](https://github.com/CloudWise-OpenSource/GAIA-DataSet/tree/main/MicroSS) 和 [gitlab 开源的 quota-of-the-day](https://gitlab.com/quote-of-the-day/quote-of-the-day) 三个测试床上，准确度召回度都接近 1 了。
 * 浙大/华为开源的 KTeleBERT 项目，综合知识图谱和 BERT 大模型，同时利用产品手册、设备告警日志和 KPI 异常进行通讯领域故障分析：<https://github.com/hackerchenzhuo/KTeleBERT>
 * 华为/中科大开源的 Biglog 大模型，基于 Bert 利用 16 个项目的4 亿 5 千万日志做无监督预训练：<https://github.com/BiglogOpenSource/PretrainedModel>。对应论文见：<https://ieeexplore.ieee.org/document/10188759/>
+    * 南开/字节针对 kernel 故障日志分析的研究：<http://nkcs.iops.ai/wp-content/uploads/2025/10/LogSage.pdf>，采用了 Biglog 的 embedding，比通用 embedding 效果有 20% 的提升。
 * 华为/北邮发布的 LogPrompt 论文，利用 ChatGPT 和 Vicuna-13B 验证 zero-shot、CoT、ICL 几种不同 prompt 方案下的日志模板提取和异常检测效果：<https://arxiv.org/pdf/2308.07610.pdf>。对比基准就是上面的 LogPPT，结论是 ChatGPT 即使 zero-shot 也比 LogPPT 强一点。而开源的 Vicuna-13B 在 zero-shot 情况下差很多，但 ICL 方案下效果提升很大，接近可用水准。
+    * 后续发布的 [R-Log 论文和开源项目](https://github.com/lunyiliu/R-Log)：在 LogPrompt 数据集基础上，通过人工经验总结的模板，扩展出thinking 过程，然后进行 qwen2.5 冷启动微调和强化学习。论文额外还训练了一个 R-Log-fast，先输出结果再输出 thinking，对比发现在日志解读方面效果明显变差。
 * 北航/云智慧开源的 Owl 运维大模型数据集，包括问答题和多选题两类：<https://github.com/HC-Guo/Owl>。对应论文中还评测了 MoA 微调、NBCE 长上下文支持、在 loghub 日志模式识别上的差异，不过优势都很微弱。
 * 华为开源的 [SuperLog 数据集](https://github.com/J-York/SuperLog/blob/main/data/NLPLog.json)：在 loghub 数据集的基础上，进行模式比例调整重构，然后针对每个模板，分 5 个维度(Grok 正则、日志解读、根因分析、组件关联分析、潜在故障预测) 10 个模板，生成25 万条问答。
 * 北航/云智慧发表的 ECLIPSE 论文，重点解决实际日志模式过多问题（除了 logpub 以外还自己做了一个 ECLIPSE-Bench 数据集）：<https://arxiv.org/pdf/2405.13548>。大致思路是在日志模式提取后，再用 LLM 提取模板对应的核心单词和punct标点，然后构建`{关键词:标点模板}`词典存入 faiss 向量数据库。然后新日志先通过faiss 做 kNN 搜索，只在搜索结果内做 LCS 最长子串匹配逻辑来考虑是否合并更新模式。
     * 北大/港中深的 AdaParser 论文：<https://arxiv.org/pdf/2406.03376>。类似思路上，加了一个 corrector 模块，包括对匹配失败的“错误”模式的更正、“正确”模式里一些不恰当变量(关键信息保留为常量)的更正。
     * 重庆大学的 LogBatcher 项目：<https://anonymous.4open.science/r/LogBatcher/README.md>。类似思路，而且就用了基础的 TF-IDF 和 DBSCAN 来实现聚类，DPP 实现采样。一个额外改进就是模板缓存里会记录频率并重排序。最后评估结果里还对比了 tokens 消耗，比 LILAC 省钱～
     * 阿里巴巴美国的 LogParser-LLM 论文：<https://dl.acm.org/doi/pdf/10.1145/3637528.3671810>。类似思路，额外改进时候区分了“松散匹配”，对松散匹配的模式可以让 LLM 更新。最后评估结果里还对比了 LLM 调用次数，但是如果换算成 tokens 消耗的话，应该不如 LogBatcher 省钱～
+    * 北大的 VISTA 论文：<https://dl.acm.org/doi/pdf/10.1145/3696630.3728506>。认为 ICL 里提供给 LLM 的示例，不应该找模板文本相似度最高的，而应该找参数变量相似度最高的？！本文评估中速度比 Drain 还快一点，但是没给准确度数据？
+* 中山大学开源的 [InferLog](https://github.com/wiluen/InferLog) 项目，通过对 ICL 示例的优化(排序和参数替换等)，提升大模型推理的 KVCache 命中率，从而加速大模型日志解析效率。本方案应该可以跟 LILAC/DivLog/AdaParser/LogBatcher 等方案同时使用！
 * 清华/必示发表的 OpsEval 论文，场景和 Owl 类似，不过仅对比开源模型的表现，并区分中英文差异。实践发现中文问答质量差很多：<https://arxiv.org/pdf/2310.07637.pdf>。
     * 后续还有 LogEval: <https://github.com/LinDuoming/LogEval>。总的来说不同任务，不同模型表现不一样，甚至 few-shot 都不一定领先 zero-shot。
 * 北大/蚂蚁金服开源的 CodeFuse-DevOpsEval 评测数据集，包括 DevOps 和 AIOps 两大块12类场景的选择器：<https://github.com/codefuse-ai/codefuse-devops-eval/blob/main/README_zh.md>，不过 AIOps 里根因分析场景 qwen 的分数异常的高，我个人怀疑是不是 qwen 预训练用到了阿里巴巴内部资料。
 * 香港中文大学/微软发表的 UniLog 论文，把 LLM 的 ICL 方法用在日志增强领域：<https://www.computer.org/csdl/proceedings-article/icse/2024/021700a129/1RLIWpCelqg>
 * 复旦大学开源的 KnowLog 项目，爬取了思科、新华三、华为三家网络设备的公开文档里关于日志模板的描述内容，基于 Bert 和 RoBerta 做预训练模型：<https://github.com/LeaperOvO/KnowLog>
     * 后续更新的 LUK 项目，改用 ChatGPT 来生成日志解读数据，用于 Bert 预训练：<https://github.com/LeaperOvO/LUK>
+* NVidia/Cadence 发表的 schemaCoder 论文：<http://arxiv.org/pdf/2508.18554>。采用智能体方案生成日志解析规则。大致思路是先聚类采样，基于采样日志生成探索性问题，让 LLM 根据问题找出聚类中可以用来回答的原文，然后根据原文生成 python 正则，最后遍历迭代直到全部解析成功。两个大问题：迭代巨慢，loghub 日志解析 77 秒，迭代 4 小时；大模型完全不熟悉 EDA 的place & route 日志，最后由专家编写探索性问题——所以我个人质疑 TDEngine 公司所谓“无问智推”功能的落地可行性。
 
 ## 标注
 
@@ -222,6 +234,10 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 华南理工针对该比赛发的论文：<https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9293310>
 * 意大利比萨大学关于微服务环境下异常检测和根因分析的综述论文：<https://arxiv.org/pdf/2105.12378.pdf>
 * Uber开源的调用链关键路径分析工具，还包括时钟偏移补偿和异常检测等：<https://github.com/uber-research/CRISP>
+* 武汉大学开源的[TracePicker](https://github.com/WHU-AISE/TracePicker)：采用动态规划和生物进化算法，实现 trace 采样过程中，除了 trace 指纹类型尽量覆盖、异常和高耗时优先保留以外，还达到总配额可控、性能指标分布近似不变。
+* IBM 发表的 Astraea 论文，针对的是 trace 采样问题，思路比较另类，span 级采样，根据耗时分布，丢掉对排障没意义的 span。每种 span 的采样率就是在自身耗时拟合的 beta 分布下，蒙特卡洛方法筛选的 P90 概率：<https://arxiv.org/pdf/2405.15645>。论文背景里还提到，阿里曾经发过论文，说只有 10% 的 span 在 trace 排障中有用。
+* 中大/阿里云发表的 Mint 论文：<https://arxiv.org/pdf/2411.04605>。提出了“近似 trace”的概念。按 trace 模式(分 trace 调用路径模式和 span 属性模式两层)聚类采样，未被挑中的数据只保留traceid、spanname、starttime、duration、模式和参数分桶。这样既大幅降低了传输流量和存储空间，还保留了正常请求的全部 traceid和 duration，可以更准地进行根因定位。
+* 港中文发表的 TraceSampling 2.0 论文<http://arxiv.org/pdf/2509.13852>。通过静态分析提取 span 的关系图，识别图上的 DSS(强关联的业务逻辑单元)，对 DSS 内做配额采样。论文对 trainticket 分析发现上百个 span 的一笔 trace，按 DSS 识别大概也就是 3-6 个。
 
 ### 多维定位
 
@@ -241,6 +257,9 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 ### 解决方案相关性推荐
 
 * 佛罗里达国际大学/IBM的论文，基于 CNN 做工单的关联和推荐，重点在如何过滤和提取工单文本的有效特征值：<https://www.researchgate.net/publication/318373831_STAR_A_System_for_Ticket_Analysis_and_Resolution>
+* 微软/清华的论文：<http://arxiv.org/pdf/2510.10074>。分析了 92 份微软云的 TSG 文档，总结了 5 类质量问题。然后设计了一个 TSGMentor 工具，根据专家标注示例，调整 TSG 文档。
+* 阿里云/南开的论文：<https://nkcs.iops.ai/wp-content/uploads/2025/12/icse2026-seip-paper13.pdf>。发现不同人写的工单，语义上不对齐，直接向量召回准确率只有 20%。所以选了 157 个故障工单，人工编写对齐，再增强到 1000 个问答对后，微调一个 qwen-8B 模型专门做工单改写。
+* 华为云/港中文的论文：<https://jun-jie-huang.github.io/assets/papers/ase25_iknow.pdf>。采用质性研究开放性编码的方法，分析了华为云现有 RAG 问答的 2000 个问答对，总结了 683 个错误案例的 6 类主要原因，主要是提问不完整和知识缺失。然后针对不同类别，做 query rewrite 优化。
 
 ### 大模型方法
 
@@ -248,11 +267,17 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 东南大学发表的根因分析领域算法研究综述，3.5 小节是大模型部分：<https://arxiv.org/pdf/2408.00803>。比较有意思是开篇总结了一个表格，列出来了最近 3 年国内外有名的 14 次互联网厂商大型故障影响和原因。
 * 微软发表的 Xpert 论文，从告警工单入口，依赖告警消息内容作为上下文，生成微软Azure自有的 Kusto Query Language：<https://arxiv.org/pdf/2312.11988.pdf>。论文提出了一个 Xcore 评价方法，从文本、符号、字段名匹配度多方面综合评估。不过文中举的错误示例，告警上线文和正确输出之间一个字都对不上，实在是不可能写对——本文给我的另一个提示：纯粹通过 Chat 形式让人提问生成查询语句，上下文信息太少，太难。当前阶段合适的策略还是找一些特定入口。
 * google 开源的 NL2LogQL 问答数据集：<https://huggingface.co/datasets/nl-to-logql/natural-logql>。数据集主要针对 loghub 里 openstack、hdfs 和 openssh 三种源日志，对应的 grafana dashboard 的趋势图，然后按照 LogQL 语句的复杂度做了比例调整。
+* 新加坡国立大学开源的 RulePilot 项目：<https://github.com/LLM4SOC-Topic/RulePilot>，主要实现把安全场景的 SPL 转换成 KQL。中间有一层自己设计的 IR 结构化描述。但本文研究完全忽略了 SPL 中大量存在的 macro 嵌套、datamodel 定义情况，所以不可能普遍使用！
 * 微软发表的《Recommending Root-Cause and Mitigation Steps for Cloud Incidents using Large Language Models》论文，通过对微软内部4万个故障数据复盘，研究 GPT 模型对比 BERT 模型是否在故障诊断方面更有优势。大概的结论可以认为是：有优势，但依然没啥用。：<https://arxiv.org/pdf/2301.03797.pdf>
 * 微软亚研/南开发表的《Assess and Summarize: Improve Outage Understanding with Large Language Models》论文，对比 GPT2(本地单卡微调)，GPT3(6.7b)和 GPT3.5(175b) 的告警概要水平。3 到 2 确实差异非常明显，但 6.7b 到 175b 倒没有提升特别多：<https://arxiv.org/pdf/2305.18084.pdf>
 * 微软发表的 RCACopilot 论文：<https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf>。先对告警信息做摘要，然后用预训练的 fasttext 嵌入模型来做历史故障的向量搜索，在最终的 prompt 里同时提供摘要和历史故障的分类和描述，让 LLM 判断是不是老故障，是的话用 CoT 推理怎么处理。论文中提供了较多的评估数据，但本身对实验运用的团队和业务环境有强依赖，很难判断适用性。
+* 微软/港中文发表的 AidAI 论文：<http://arxiv.org/pdf/2506.01481>。针对 GPU 集群故障诊断的多智能体框架。其实核心是总结好的故障分类树。文中附图 17 建议放大细看。
+* 浙大/阿里云发表的 Kunlun Anomaly Troubleshooter 论文：<http://arxiv.org/pdf/2511.05978>。针对LLM 推理集群的异常检测和故障分析方案。主要是针对 GPU 线程的 kernel 级 trace 树构建和耗时 3-sigma 检测。
 * 微软发表的另一篇 ReAct 框架做 RCA 的技术报告：<https://arxiv.org/pdf/2403.04123.pdf>。大概结论是：不开发特定 Tool，靠通用的文档召回 tool，ReAct 效果还不如直接 RAG 或 CoT。即使开发特定 Tool，知识库里的分析计划写的如何，也才是影响最大的。一旦涉及多个知识库文档，ReAct 差不多到第二三轮就会一直失败下去了。
 * 清华/微软开源的 AIOpsLab 项目：<https://microsoft.github.io/AIOpsLab/>。提供了一套 AIOps 从检测到定位到修复的评估框架。首批对比了直接使用 GPT 和 ReAct 方案、以及微软之前发表的[FLUSH智能体方案](https://www.microsoft.com/en-us/research/uploads/prod/2024/10/FLASH_Paper.pdf)的差异。结果分析里最有趣的是：成功 case 里其实调用 get_metric 和 get_trace tools 的比例很低！也就是说直接 kubectl 工具分析不出来的故障，就算再加指标和调用链，成功概率也不高了。
+    * 清华/IBM 开源的 STRATUS 项目：<https://anonymous.4open.science/r/stratus-agent>。基于 crewai 框架实现，在 AIOpsLab 和 ITBench 上测试的智能体方案。最大贡献点是 undo agent，和怎么判断需要回退。也是我见到的第一个真正尝试修复故障的探索！
+    * RSAC 实验室公布的论文：<https://pasquini-dario.github.io/me/aioops.pdf>，用 AIOpsLab 测试床演示如何注入攻击运维智能体。
+    * 沙特阿卜杜拉国王科技大学/中国电子科大开源的 [NIKA](https://github.com/sands-lab/nika)，在 AIOpsLab 的启发下，做的针对网络运维故障发现和分析的基准测试床（包括开源 kathara 仿真、iperf 压测、基于 FastMCP 和 langgraph 构建的智能体）。
 * IBM 开源的 [KubePlaybook 数据集](https://github.com/K8sPlayBook/KubePlaybook/tree/main)，包括 130 份自然语言查询生成 ansible playbook 的语料，分为配置查询和故障分析操作等场景。该团队同时基于这个数据集验证了 few-shot learning 对生成 ansible playbook 的重要性（GPT4 和 llama2-70B 下测试，成功率从个位数提升到百分之七八十。另一个有趣的结论是温度设置最好为 0.6）：<https://dl.acm.org/doi/pdf/10.1145/3663529.3663855>
 * 阿里云 Flink 团队发表的 RCAgent 论文: <https://arxiv.org/pdf/2310.16340v1>。其中为了对 flink 错误日志做概要，设计了一大段巨复杂的流程（向量转换，滚动构建矩阵，Louvain贪婪去重聚类，RGA 生成解释和证据，计算证据和原始日志的LEVENSHTEIN距离做过滤，最后二次概要）。
 * 港中深开源的 [OpenRCA 数据集](https://github.com/microsoft/OpenRCA)：将之前三届 AIOps 挑战赛的数据集整理过滤，方便进行 RCA 智能体评测。论文自己也实现了一个简单的 Agent 但是效果很一般。注意数据集中有一些号称故障但其实对业务指标毫无影响的场景，我个人认为并无 RCA 必要。
@@ -281,8 +306,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 维也纳工业大学的[VloGraph](https://www.mdpi.com/2504-4990/4/2/16)项目，利用 NLP 和图谱分析技术，做安全场景的日志解析、存储和查询可视化框架：<https://github.com/sepses>
 * 清华大学/ebay的 AlertRCA，算是之前北大/ebay 的 [Groot](https://arxiv.org/pdf/2108.00344) 的加强版。利用 Bert 向量化告警、图注意力来学习因果，不用手动配置规则：<https://netman.aiops.org/wp-content/uploads/2024/03/AlertRCA_CCGRID2024_CameraReady.pdf>
 * 清华大学/蚂蚁金服的 SparseRCA 论文：<https://netman.aiops.org/wp-content/uploads/2024/09/SparseRCA__Unsupervised_Root_Cause_Analysis_in_Sparse_Microservice_Testing_Traces__ISSRE24_Camera_Ready_.pdf>。论文通过案例研究提出一个观点：有一部分 span 的自身耗时，也跟 child 的数量有关，所以能用 EM 算法构建一个对未知 trace pattern 的耗时的拟合函数，用于 RCA 异常检测和排序。
-* IBM 发表的 Astraea 论文，针对的是 trace 采样问题，思路比较另类，span 级采样，根据耗时分布，丢掉对排障没意义的 span。每种 span 的采样率就是在自身耗时拟合的 beta 分布下，蒙特卡洛方法筛选的 P90 概率：<https://arxiv.org/pdf/2405.15645>。论文背景里还提到，阿里曾经发过论文，说只有 10% 的 span 在 trace 排障中有用。
-* 中大/阿里云发表的 Mint 论文：<https://arxiv.org/pdf/2411.04605>。提出了“近似 trace”的概念。按 trace 模式(分 trace 调用路径模式和 span 属性模式两层)聚类采样，未被挑中的数据只保留traceid、spanname、starttime、duration、模式和参数分桶。这样既大幅降低了传输流量和存储空间，还保留了正常请求的全部 traceid和 duration，可以更准地进行根因定位。
+* 上海交大/佰晟众信的 DBAIOps 项目：<https://github.com/weAIDB/DBAIOps>，还有对应论文：<http://arxiv.org/pdf/2508.01136>。核心是构建含 6 种节点、4 种边的 DBA 知识图谱，涵盖图谱初始化（爬取文档、定义触发顶点等）与增强过程，还提出多指标异常检测及图谱演化机制，开源项目含多数据库监控脚本与错误码、阈值规则等资源，想搞信创数据库监控的推荐！
 
 ## 行为异常
 
