@@ -113,6 +113,8 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
         * 同一个作者和字节跳动合作的 [LogCloud](https://github.com/marsupialtail/logcloud) 项目。针对的是云日志通配符查询场景，日志原文存在 S3 上。本文主要解决如何构建二级索引，加速从 S3 下载文件的过程。
     * 匈牙利罗兰大学的改进，主要在内存消耗上领先，论文：<https://www.mdpi.com/2076-3417/12/4/2044/pdf>
     * 北大/港中深的 DeNum 项目：<https://github.com/gaiusyu/Denum>。抓住了一个很有趣的点“日志里数值占比很高，且不会太长”，并对数值设计了一套`(长度、首位)`编码标记，同一个标记的数值序列压缩率超高。剩余部分直接复用 logzip。
+       * 同一作者和字节合作的 DeLog 项目：<https://github.com/gaiusyu/Delog>。发现过去基于模板的压缩方案，受模板准确度的影响极大。但实际上只要分组内容近似，压缩率就高。所以核心问题是怎么分组，分组里准不准无所谓。所以方案是尽量识别变量上下文，而不特别在意模板。
+    * 中山大学的 LogPrism 项目：<https://github.com/Lycc42/LogPrism>。发现变量是跟着模板走的，甚至会多个变量作为一组同时出现。所以按模板组合变量可以大大提高压缩率。压缩速度和压缩率和 DeLog 差不多，但本文没提供解压缩速度评测。
     * 广州大学/蚂蚁金服内存数据库团队的 LogLite 项目：<https://github.com/benzhaotang/LogLite>。研发发现他们产品日志长度变化极小，且相同长度的相似度更高。所以直接对相同长度的日志做逆序做 XOR 逻辑异或，和 RLE 游程编码，实现压缩。
     * 威斯康星麦迪逊大学的开源项目 [REI](https://github.com/mush-zhang/REI-Regular-Expression-Indexing)。认为日志查询一般都会有固定关键词，所以只需要针对查询热点词（论文认为 64 个就行）做 n-gram 索引就足够用。
 * DeepLog 论文(包含模式检测、参数检测、工作流检测三部分)：<https://acmccs.github.io/papers/p1285-duA.pdf>
@@ -160,6 +162,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
     * 重庆大学的 LogBatcher 项目：<https://anonymous.4open.science/r/LogBatcher/README.md>。类似思路，而且就用了基础的 TF-IDF 和 DBSCAN 来实现聚类，DPP 实现采样。一个额外改进就是模板缓存里会记录频率并重排序。最后评估结果里还对比了 tokens 消耗，比 LILAC 省钱～
     * 阿里巴巴美国的 LogParser-LLM 论文：<https://dl.acm.org/doi/pdf/10.1145/3637528.3671810>。类似思路，额外改进时候区分了“松散匹配”，对松散匹配的模式可以让 LLM 更新。最后评估结果里还对比了 LLM 调用次数，但是如果换算成 tokens 消耗的话，应该不如 LogBatcher 省钱～
     * 北大的 VISTA 论文：<https://dl.acm.org/doi/pdf/10.1145/3696630.3728506>。认为 ICL 里提供给 LLM 的示例，不应该找模板文本相似度最高的，而应该找参数变量相似度最高的？！本文评估中速度比 Drain 还快一点，但是没给准确度数据？
+        * 后续进展：<https://github.com/mianmaner/VarParser>。在 VISTA 的基础上，进一步修改，连ICL 里的示例，也不用日志原文，直接处理成变量的“内容→名称”对。这次评测数据也比较全面，但速度慢了一点点。
 * 中山大学开源的 [InferLog](https://github.com/wiluen/InferLog) 项目，通过对 ICL 示例的优化(排序和参数替换等)，提升大模型推理的 KVCache 命中率，从而加速大模型日志解析效率。本方案应该可以跟 LILAC/DivLog/AdaParser/LogBatcher 等方案同时使用！
 * 清华/必示发表的 OpsEval 论文，场景和 Owl 类似，不过仅对比开源模型的表现，并区分中英文差异。实践发现中文问答质量差很多：<https://arxiv.org/pdf/2310.07637.pdf>。
     * 后续还有 LogEval: <https://github.com/LinDuoming/LogEval>。总的来说不同任务，不同模型表现不一样，甚至 few-shot 都不一定领先 zero-shot。
@@ -281,7 +284,12 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * IBM 开源的 [KubePlaybook 数据集](https://github.com/K8sPlayBook/KubePlaybook/tree/main)，包括 130 份自然语言查询生成 ansible playbook 的语料，分为配置查询和故障分析操作等场景。该团队同时基于这个数据集验证了 few-shot learning 对生成 ansible playbook 的重要性（GPT4 和 llama2-70B 下测试，成功率从个位数提升到百分之七八十。另一个有趣的结论是温度设置最好为 0.6）：<https://dl.acm.org/doi/pdf/10.1145/3663529.3663855>
 * 阿里云 Flink 团队发表的 RCAgent 论文: <https://arxiv.org/pdf/2310.16340v1>。其中为了对 flink 错误日志做概要，设计了一大段巨复杂的流程（向量转换，滚动构建矩阵，Louvain贪婪去重聚类，RGA 生成解释和证据，计算证据和原始日志的LEVENSHTEIN距离做过滤，最后二次概要）。
 * 港中深开源的 [OpenRCA 数据集](https://github.com/microsoft/OpenRCA)：将之前三届 AIOps 挑战赛的数据集整理过滤，方便进行 RCA 智能体评测。论文自己也实现了一个简单的 Agent 但是效果很一般。注意数据集中有一些号称故障但其实对业务指标毫无影响的场景，我个人认为并无 RCA 必要。
+    * 滑铁卢大学针对 OpenRCA 和 GAIA 评测集失败案例的轨迹研究：<https://github.com/boerste/rca-llm-reasoning>
+    * 韩国汉阳大学针对 OpenRCA 失败案例的研究：<http://arxiv.org/pdf/2602.09937>。研究中更新了基础大模型版本，gemini2.5-pro 比 sonnet4 强很多。
+    * anthropic 公司发布 opus-4.6 的时候，主动加测了 OpenRCA 基准：<https://www.anthropic.com/news/claude-opus-4-6>。不知道是不是他们也看上面的研究，发现自己确实这方面不太行？
+* 中山大学开源的 [Cloud-OpsBench 数据集](https://github.com/wiluen/Cloud-OpsBench)，和 OpenRCA、AIOpsLab、ITBench 相比，可复现、工具明确、支持 agentic 流程、考虑了外部知识增强场景。
 * Flip.AI 公司，自研的 DevOps 大模型，发表了技术报告。采用了 1 encoder -> N decoder 的 MoE 架构，在 80B token 上增量预训练；微调训练部分主要数据来源是基于 RAG 的 evol-instruct 仿真数据再辅以 18 个月的人工双盲过滤；强化学习阶段是 RLHAIF，构建一个故障注入环境，让模型生成 RCA 报告：<https://assets-global.website-files.com/65379657a6e8b5a6ad9463ed/65a6ec298f8b53c8ddb87408_System%20of%20Intelligent%20Actors_FlipAI.pdf>
+* IncidentFox 公司，对应开源项目：<https://github.com/incidentfox/incidentfox>。其中有大量的 skills。但其实 skills 之间区分度也不太明显。至少我自己测试同样问题，GPT-5.3 一会儿选 investigator 一会儿选 observability……
 
 ## 告警归并
 
@@ -307,6 +315,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * 清华大学/ebay的 AlertRCA，算是之前北大/ebay 的 [Groot](https://arxiv.org/pdf/2108.00344) 的加强版。利用 Bert 向量化告警、图注意力来学习因果，不用手动配置规则：<https://netman.aiops.org/wp-content/uploads/2024/03/AlertRCA_CCGRID2024_CameraReady.pdf>
 * 清华大学/蚂蚁金服的 SparseRCA 论文：<https://netman.aiops.org/wp-content/uploads/2024/09/SparseRCA__Unsupervised_Root_Cause_Analysis_in_Sparse_Microservice_Testing_Traces__ISSRE24_Camera_Ready_.pdf>。论文通过案例研究提出一个观点：有一部分 span 的自身耗时，也跟 child 的数量有关，所以能用 EM 算法构建一个对未知 trace pattern 的耗时的拟合函数，用于 RCA 异常检测和排序。
 * 上海交大/佰晟众信的 DBAIOps 项目：<https://github.com/weAIDB/DBAIOps>，还有对应论文：<http://arxiv.org/pdf/2508.01136>。核心是构建含 6 种节点、4 种边的 DBA 知识图谱，涵盖图谱初始化（爬取文档、定义触发顶点等）与增强过程，还提出多指标异常检测及图谱演化机制，开源项目含多数据库监控脚本与错误码、阈值规则等资源，想搞信创数据库监控的推荐！
+* 中山大学/联通的 [MetaRCA 论文](http://arxiv.org/pdf/2603.02032)，预定义 17 种实体类型、关系和相关 SLI，蒸馏 Gemini 知识填充这个图谱初始内容。然后引入历史故障数据和权重退化机制来持续演化图谱。
 
 ## 行为异常
 
