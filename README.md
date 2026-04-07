@@ -338,3 +338,7 @@ AIOps 的论文、演讲、开源库的汇总手册。按照[《企业AIOps实�
 * @jorge-cardoso 对 AIOps 领域的系统映射研究：<https://jorge-cardoso.github.io/publications/Papers/WP-2020-079-AIOPS2020_A_Systematic_Mapping_Study_in_AIOps.pdf>
 * @jorge-cardoso 对 AIOps 故障大类别的研究综述：<https://jorge-cardoso.github.io/publications/Papers/JA-2021-025-Survey_AIOps_Methods_for_Failure_Management.pdf>
 * 中国移动信息技术有限公司关于自动化运维和智能运维的成熟度评估模型介绍：<https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2021&filename=DGJB202101009&v=4TGdKbAr7slYCfXAgxJfw2rHqvDI%25mmd2FLQ8iARm627FUgNvt7c9lvfHVIbYjAz8eR2x>
+
+
+## Security / Observability
+- **SupraWall** - Runtime security layer for AIOps and autonomous agents. Intercepts tool calls, enforces policies, vaults credentials. Apache 2.0. [supra-wall.com](https://supra-wall.com)
